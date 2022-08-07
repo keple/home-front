@@ -1,0 +1,17 @@
+.about-contents {
+  padding-left: 5%;
+  display: flex;
+  flex-direction: row;
+}
+.about-contents .base-info {
+  width: 100%;
+  padding : 5%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.base-info p {
+  font-size: large;
+}

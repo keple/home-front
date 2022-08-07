@@ -1,0 +1,27 @@
+<div class="auth-container">
+  <div class="text-wrapper">
+    <span>인증</span>
+  </div>
+  <div class="auth-inner-container">
+
+    <div class="description-area">
+      <div class="circle" >
+        <i class="fa-solid fa-key fa-4x"></i>
+      </div>
+    </div>
+    <div class="input-area">
+      <mat-form-field appearance="fill" class="max-width">
+        <mat-label>id</mat-label>
+        <input matInput [(ngModel)]="username">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="max-width">
+        <mat-label>pw</mat-label>
+        <input type="password" matInput [(ngModel)]="password">
+      </mat-form-field>
+    </div>
+    <div class="button-area">
+      <button mat-button (click)="publishKey()" >인증요청</button>
+      <button mat-button (click)="closeMatdialogClose()">닫기</button>
+    </div>
+  </div>
+</div>

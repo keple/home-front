@@ -1,0 +1,8 @@
+<div class="file-view-container bg-gray">
+  <div class="file-view-title"><h2>DOWNLOADS</h2></div>
+  <div class="files-area">
+    <div *ngFor="let file of files">
+      <app-mini-card title="{{file.getFilename()}}" type="file" resourceName="{{file.getFileType()}}" supportType="download" backgroundResource="wood"></app-mini-card>
+    </div>
+  </div>
+</div>

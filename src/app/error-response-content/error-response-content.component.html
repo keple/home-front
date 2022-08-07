@@ -1,0 +1,36 @@
+<div class="error-dialog-container">
+  <div class="error-dialog-inner-container">
+    <!-- client가 인증토큰을 가지고있지 않은 경우 -->
+    <div  class="error-message-container" *ngIf="data.statusCode===-401">
+      <div class="error-circle">
+        <i class="fa-solid fa-3x fa-lock"></i>
+      </div>
+      <!-- if client not have token -->
+      <div class="error-message-txt">
+          인증 오류!
+      </div>
+      <div class="solve-message-txt">
+        <p>인증 토큰을 발급받은 뒤에 다시 시도하세요</p>
+        <p>인증 토큰은 우상단 인증토큰 메뉴에서</p>
+        <p>발급받을 수 있습니다.</p>
+      </div>
+    </div>
+    <div class="error-message-container" *ngIf="data.statusCode===503">
+      <div class="error-circle" >
+        <i class="fa-solid fa-eye-slash fa-3x"></i>
+      </div>
+      <!-- if client not have token -->
+      <div class="error-message-txt">
+        서비스를 이용할수 없음
+      </div>
+      <div class="solve-message-txt">
+        <p>서비스가 정상 응답하지 않고있습니다.</p>
+        <p>{{data.message}}</p>
+      </div>
+
+    </div>
+    <div>
+      <button mat-button mat-dialog-close (click)="closeDialog()"style="color:gray">닫기</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.toolbar {
+  display:grid;
+  gap : 1px;
+  grid-template-rows: 15% 35% 25% 25%;
+  min-width:100%;
+  min-height:100%;
+}
+.nav-front {
+  grid-column-start : 1;
+  grid-column-end : 2;
+}
+.nav-center {
+  grid-column-start : 5;
+  grid-column-end : 8;
+}
+.nav-center .menu-container{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  width:100%;
+  height:100%;
+  align-items: center;
+}
+.nav-center .menu-container .menu-item {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  cursor:pointer;
+  width:100%;
+  height:100%;
+  text-align : center;
+  background-color: #333333;
+
+}
+.menu-item:before {
+  background: #aaaaaa !important;
+}
+.nav-center .menu-container .menu-item h2{
+  margin : 0;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  color:white;
+  opacity : 0.8
+}
+.nav-center .menu-container .menu-item h2:hover{
+  color:black
+}
+.nav-end {
+  grid-column-start : 8;
+  grid-column-end:9;
+  background-color : #0F9E5E;
+  display:flex;
+  justify-content: center;
+}
+.menu-description {
+  grid-column-start:1;
+  grid-column-end:9;
+  grid-row-start : 2;
+  grid-row-end: 3;
+  display: flex;
+  align-items: center;
+}
+.nav-end button {
+  width:100%;
+  height:100%;
+}
+.routing-text {
+  margin-left:3%;
+  font-size: 5rem;
+  color:white;
+}
+.routing-text:before {
+  border-top : 12px solid #125699 ;
+
+}
+

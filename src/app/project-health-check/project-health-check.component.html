@@ -1,0 +1,9 @@
+<div class="project-container common-area">
+  <div class="common-title"><h2>Projects</h2></div>
+  <div class="project-modules-area">
+    <div *ngFor="let project of projectList">
+      <app-mini-card title="{{project.getServiceName()}}" type="image" supportType="detail" backgroundResource="{{project.getProjectTech()}}"></app-mini-card>
+    </div>
+
+  </div>
+</div>

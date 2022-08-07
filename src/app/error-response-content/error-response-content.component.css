@@ -1,0 +1,45 @@
+.error-dialog-container{
+
+  height:100%;
+}
+.error-message-container {
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height:100%;
+}
+.message-nav-top{
+  background:gray;
+  height:10px;
+}
+.error-message-txt {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 2rem;
+}
+.solve-message-txt p{
+  text-align:center;
+}
+.error-circle {
+  margin-top:25px;
+  display:flex;
+  background:#eeeeee;
+  opacity: .8;
+  border-radius: 50%;
+  width:100px;
+  height:100px;
+  align-items: center;
+  justify-content: center;
+}
+.error-circle i{
+  margin: auto;
+  color:red;
+}
+.error-dialog-inner-container{
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  padding:24px;
+  height:90%;
+}

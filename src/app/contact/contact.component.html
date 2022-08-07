@@ -1,0 +1,48 @@
+<div class="career-container common-area bg-gray">
+  <div class="common-title"><h2>CONTACT</h2></div>
+  <div class="bg-white tab-container">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="message">
+        <div class="direct-message-area">
+          <div class="message-description-area">
+
+          </div>
+          <div class="message-contents-area">
+            <mat-form-field appearance="fill" class="max-width">
+              <mat-label>Title</mat-label>
+              <input matInput [(ngModel)]="title">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="max-width">
+              <mat-label>Contents</mat-label>
+              <textarea rows="17" matInput [(ngModel)]="contents"></textarea>
+            </mat-form-field>
+            <div class="button-area">
+              <button mat-button (click)="submit()">Send</button>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Chat">
+        <div class="chat-area ">
+          <div class="chatroom-area scroll-item">
+            <div class="room-item">
+              <div>
+                <span>ROOM-ITEM1</span>
+              </div>
+              <div>
+                <button mat-button (click)="enterRoom('ROOM-ITEM1')">입장</button>
+              </div>
+            </div>
+          </div>
+          <div class="chat-contents-area">
+
+          </div>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,17 @@
+<div class="full card-wrapper img-filter-mc bg-{{backgroundResource}}" >
+  <div class="card-container full">
+    <div class="icon-or-image">
+
+      <i *ngIf="type==='file'" class="fa-solid fa-5x fa-file-pdf"></i>
+      <img *ngIf="type==='image'" src=""/>
+    </div>
+    <div class="title">
+      <p class="title-text">{{title}}</p>
+    </div>
+    <div class="download-button-area">
+      <div class="download-btn m-r-30 hvr-underline-from-left" (mouseover)="active()" (mouseout)="inActive()" (click)="supportFn()">
+        <span>{{title}}</span>  <i [@hoverButton]="state" (@hoverButton.done)="onEnd($event)"  class="fa-solid fa-xl fa-angles-right"></i>
+      </div>
+    </div>
+  </div>
+</div>

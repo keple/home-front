@@ -1,0 +1,38 @@
+.side-menu-container {
+  width:100%;
+  height:100%;
+
+}
+.side-area {
+  width:100%;
+  height:100%;
+  /*box-shadow:0 4px 12px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);*/
+  border-radius: 15px;
+}
+.side-area .menu-icons{
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  height:8%;
+}
+.menu-icons .icon {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:50%;
+  color: white;
+}
+.menu-icons .tag {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:50%;
+  color: white;
+}
+.hv-bg-red:before {
+  background-color : #FA947E;
+}
+
+.hv-bg-light-blue:before {
+  background-color:#1976d2;
+}

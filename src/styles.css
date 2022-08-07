@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Kdam+Thmor+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "./hover-min.css";
+
+body{
+  margin : 0;
+  height:100%;
+  overflow: hidden;
+}
+.column-class-box {
+  display: flex;
+  width:100%;
+  height:100%;
+}
+.justify-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.kr-font {
+  font-family : 'Noto Sans KR', sans-serif;
+}
+.pointer {
+  cursor : pointer;
+}
+.kr-pen-font {
+  font-family : 'Nanum Pen Script', cursive;
+}
+.font-kdam {
+  font-family : 'Kdam Thmor Pro', sans-serif
+}
+
+.common-title {
+  width:100%;
+  z-index: 999;
+  height: 100px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size:2rem;
+  font-weight: bolder;
+
+}
+.common-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #45505b;
+}
+.common-title h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+.common-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #0563bb;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+
+.bg-gray {
+  background: #c2c3c4;
+  color: white !important;
+}
+.bg-white {
+  background: white !important;
+  color : black;
+}
+.common-area {
+  padding-bottom: 5%;
+}
+.mat-dialog-container {
+  padding: 0px !important;
+}
+.img-filter::before {
+  content: "";
+  position:absolute;
+  top : 0px;
+  bottom : 0px;
+  right: 0px;
+  left : 0px;
+  background-color: #000;
+  opacity : .4;
+  border-radius: 15px;
+}
+/*scroll*/
+
+.scroll-item::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll-item::-webkit-scrollbar-thumb {
+  background-color: #888888;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.scroll-item::-webkit-scrollbar-track {
+  background-color: #D6D6D6;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}

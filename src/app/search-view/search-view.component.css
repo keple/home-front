@@ -1,0 +1,21 @@
+.search-container {
+
+  height:100%;
+  display: grid;
+  grid-template-columns : 100%;
+  grid-template-rows : minmax(300px,300px) 1fr ;
+
+}
+.search-container form {
+
+}
+.search-container form input {
+  margin : auto;
+}
+.w-60{
+  width:60%;
+  margin:auto;
+}
+.result-box {
+  background-color : #24292e;
+}

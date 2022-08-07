@@ -1,0 +1,59 @@
+.career-container {
+  padding: 3%;
+  min-height:600px;
+}
+
+.direct-message-area {
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  border-radius : 10px;
+  box-shadow:0 4px 12px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  min-height: 450px;
+}
+.direct-message-area .message-description-area {
+  width: 20%;
+}
+.direct-message-area .message-contents-area {
+  width:80%;
+  display: flex;
+  flex-direction: column;
+}
+.button-area {
+  display:flex;
+  justify-content: flex-end;
+}
+.tab-container {
+  border-radius: 10px;
+}
+
+.chat-area {
+  display: flex;
+  flex-direction : row;
+  padding: 25px;
+
+}
+.chat-area .chatroom-area {
+  width: 20%;
+  overflow-y : scroll;
+  min-height:450px;
+}
+.chat-area .chat-contents-area {
+  width: 80%;
+}
+.chat-area .chatroom-area .room-item {
+  display:flex;
+  width: 100%;
+  background : #0F9E5E;
+  min-height:75px;
+  align-items: center;
+}
+
+.chat-area .chatroom-area .room-item div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
