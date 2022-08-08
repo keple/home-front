@@ -11,6 +11,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class UserAuthComponent implements OnInit {
   username: string;
   password: string;
+  @Output() authenticationEvent  = new EventEmitter();
   constructor(private commonService: CommonService , private routes: Router, private dialogRef: MatDialogRef<UserAuthComponent>) { }
 
   ngOnInit(): void {
@@ -20,8 +21,9 @@ export class UserAuthComponent implements OnInit {
     console.log(this.username , this.password , null);
     const accessToken = await this.commonService.publishApiKey(this.username , this.password , null);
     // set local storage
-    localStorage.setItem('token' , accessToken);
+    await localStorage.setItem('token' , accessToken);
     this.dialogRef.close();
+    this.authenticationEvent.emit({});
     // getMenuList를 다시호출함
   }
   closeMatdialogClose() {
