@@ -4,22 +4,31 @@ import {MenuDto} from '../../../model/MenuDto';
 import {ApiConfig} from '../../../app/configuration/apiConfig';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ServiceDto} from '../../../model/ServiceDto';
+import {Router} from '@angular/router';
+import {AdminPanelComponent} from '../../../app/admin/admin-panel/admin-panel.component';
 @Injectable({
   providedIn : 'root'
 })
 export class CommonServiceImpl implements CommonService{
-  constructor(private apiConfig: ApiConfig, private snackBar: MatSnackBar) {
+  constructor(private apiConfig: ApiConfig, private snackBar: MatSnackBar, private router: Router) {
     this.apiConfig = apiConfig;
   }
 
   async getMenuList(): Promise<Array<MenuDto>> {
-    return await this.apiConfig.getNonSecureAxios()({
+    return await this.apiConfig.getNonStrictSecureAxios()({
       url: 'common/menus',
       method: 'get',
     }).then<Array<MenuDto>>(({data}) => {
-      return data.map((dt) => {
+      const menuList = data.map((dt) => {
         return new MenuDto(dt.menuId, dt.path);
       });
+      this.router.resetConfig(
+        [
+          ...this.router.config,
+          {path: 'admin/management', component: AdminPanelComponent}
+        ]
+      );
+      return menuList;
     });
   }
   async getProjects(): Promise<Array<ServiceDto>> {
@@ -52,5 +61,9 @@ export class CommonServiceImpl implements CommonService{
       console.log(error);
       this.snackBar.open('인증 실패!' , 'close', {duration: 2500});
     });
+  }
+
+  getSubMenuList(): Promise<Array<MenuDto>> {
+    return Promise.resolve(undefined);
   }
 }

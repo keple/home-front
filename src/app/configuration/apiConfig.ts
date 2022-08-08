@@ -10,12 +10,14 @@ axios.defaults.baseURL = environment.apiUrl;
 export class ApiConfig {
   private secureAxios;
   private nonSecureAxios;
+  private nonStrictSecureAxios;
   constructor( private dialog: MatDialog) {
     this.nonSecureAxios = axios.create();
     this.nonSecureAxios.interceptors.response.use(
       (response) => response,
       this.requestRejectedInterceptor
     );
+    // secure axios setting
     this.secureAxios = axios.create();
     this.secureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
     this.secureAxios.interceptors.request.use(
@@ -35,8 +37,18 @@ export class ApiConfig {
         console.log('axios interceptor error' , error);
         return Promise.reject(error);
       }
+      // none strict axios setting
     );
     this.secureAxios.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      this.requestRejectedInterceptor
+    );
+    // none strict secure axios setting
+    this.nonStrictSecureAxios = axios.create();
+    this.nonStrictSecureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
+    this.nonStrictSecureAxios.interceptors.response.use(
       (response) => {
         return response;
       },
@@ -57,5 +69,8 @@ export class ApiConfig {
   }
   public getNonSecureAxios(): AxiosInstance {
     return this.nonSecureAxios;
+  }
+  public getNonStrictSecureAxios(): AxiosInstance {
+    return this.nonStrictSecureAxios;
   }
 }

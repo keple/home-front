@@ -7,6 +7,9 @@ import {ServiceDto} from '../../../model/ServiceDto';
   providedIn : 'root'
 })
 export class CommonServiceMock implements CommonService {
+  public getSubMenuList(): Promise<MenuDto[]> {
+      throw new Error('Method not implemented.');
+  }
   getMenuList(): Promise<Array<MenuDto>> {
     return new Promise((resolve , reject) => {
       resolve([
@@ -28,6 +31,10 @@ export class CommonServiceMock implements CommonService {
       new ServiceDto('test2', 'spring-boot')
     ];
     return Promise.resolve(services);
+  }
+
+  getSecureMenuList(): Promise<Array<MenuDto>> {
+    return Promise.resolve(undefined);
   }
 
 }
