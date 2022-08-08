@@ -7,11 +7,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserAuthComponent} from './user-auth/user-auth.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
-  {path: 'userAuth', component: UserAuthComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'search', component: SearchViewComponent},
-  {path: 'fileView', component: FileViewComponent}
+  {path: '', component: DashboardComponent}
 ];
 
 @NgModule({

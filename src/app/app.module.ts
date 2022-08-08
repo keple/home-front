@@ -39,6 +39,7 @@ import {DialogModule} from './dialog/DialogModule';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -58,9 +59,11 @@ import {MatTabsModule} from '@angular/material/tabs';
     AboutComponent,
     ProjectHealthCheckComponent,
     CareerComponent,
-    ContactComponent
+    ContactComponent,
+
   ],
   imports: [
+    AdminModule,
     HttpClientModule,
     MarkdownModule.forRoot({loader: HttpClient}),
     BrowserModule,
