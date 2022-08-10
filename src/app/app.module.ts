@@ -18,8 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { MiniCardComponent } from './mini-card/mini-card.component';
-import {ResourceModule} from '../resources/resource.module';
-import { FileManagementComponent } from './file-management/file-management.component';
+import {ComponentModule} from '../resources/component.module';
 import {ServiceModule} from '../services/api/service.module';
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -51,7 +50,6 @@ import {AdminModule} from './admin/admin.module';
     FileViewComponent,
     DashboardComponent,
     MiniCardComponent,
-    FileManagementComponent,
     UserAuthComponent,
     SideMenuComponent,
     ErrorResponseContentComponent,
@@ -60,7 +58,6 @@ import {AdminModule} from './admin/admin.module';
     ProjectHealthCheckComponent,
     CareerComponent,
     ContactComponent,
-
   ],
   imports: [
     AdminModule,
@@ -76,7 +73,7 @@ import {AdminModule} from './admin/admin.module';
     AppRoutingModule,
     MatCardModule,
     MatInputModule,
-    ResourceModule,
+    ComponentModule,
     DialogModule,
     MatCheckboxModule,
     MatRadioModule,

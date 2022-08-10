@@ -8,6 +8,10 @@
 .nav-front {
   grid-column-start : 1;
   grid-column-end : 2;
+  display:flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+  align-items: center;
 }
 .nav-center {
   grid-column-start : 5;

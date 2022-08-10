@@ -6,11 +6,12 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {ServiceDto} from '../../../model/ServiceDto';
 import {Router} from '@angular/router';
 import {AdminPanelComponent} from '../../../app/admin/admin-panel/admin-panel.component';
+import {ComponentMap} from '../../../resources/component.map';
 @Injectable({
   providedIn : 'root'
 })
 export class CommonServiceImpl implements CommonService{
-  constructor(private apiConfig: ApiConfig, private snackBar: MatSnackBar, private router: Router) {
+  constructor(private apiConfig: ApiConfig, private snackBar: MatSnackBar, private router: Router, private componentMap: ComponentMap) {
     this.apiConfig = apiConfig;
   }
 
@@ -19,13 +20,16 @@ export class CommonServiceImpl implements CommonService{
       url: 'common/menus',
       method: 'get',
     }).then<Array<MenuDto>>(({data}) => {
+      const additionalRouteConfig = [];
       const menuList = data.map((dt) => {
-        return new MenuDto(dt.menuId, dt.path);
+        additionalRouteConfig.push({path: dt.path , component: this.componentMap.get(dt.menuId)});
+        return new MenuDto(dt.menuId, dt.menuName, dt.path);
       });
+      // 대메뉴 메인페이지로의 라우팅 설정만 추가해준다.
       this.router.resetConfig(
         [
           ...this.router.config,
-          {path: 'admin/management', component: AdminPanelComponent}
+          ...additionalRouteConfig
         ]
       );
       return menuList;
@@ -63,7 +67,14 @@ export class CommonServiceImpl implements CommonService{
     });
   }
 
-  getSubMenuList(): Promise<Array<MenuDto>> {
-    return Promise.resolve(undefined);
+  async getSubMenuList(viewCategory: string): Promise<Array<MenuDto>> {
+    return await this.apiConfig.getNonSecureAxios()({
+      url: `common/${viewCategory}/subMenus`,
+      method: 'get'
+    }).then<Array<MenuDto>>(({data}) => {
+        return data.map((dt) => {
+          return new MenuDto(dt.menuId , dt.menuName, dt.path);
+        });
+    });
   }
 }

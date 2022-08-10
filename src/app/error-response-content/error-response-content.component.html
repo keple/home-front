@@ -27,10 +27,22 @@
         <p>서비스가 정상 응답하지 않고있습니다.</p>
         <p>{{data.message}}</p>
       </div>
-
     </div>
     <div>
       <button mat-button mat-dialog-close (click)="closeDialog()"style="color:gray">닫기</button>
+    </div>
+  </div>
+  <div class="error-message-container" *ngIf="data.statusCode===500">
+    <div class="error-circle" >
+      <i class="fa-solid fa-eye-slash fa-3x"></i>
+    </div>
+    <!-- if client not have token -->
+    <div class="error-message-txt">
+      서비스를 이용할수 없음
+    </div>
+    <div class="solve-message-txt">
+      <p>서비스가 정상 응답하지 않고있습니다.</p>
+      <p>{{data.message}}</p>
     </div>
   </div>
 </div>

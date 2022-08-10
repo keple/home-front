@@ -1,7 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {ResourceMap} from '../../resources/resource.map';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
-import {ResourceService} from "../../services/abstract/ResourceService";
+import {ResourceService} from '../../services/abstract/ResourceService';
 
 @Component({
   selector: 'app-mini-card',
@@ -24,12 +23,11 @@ export class MiniCardComponent implements OnInit, OnChanges {
   @Input() backgroundResource: string;
   @Input() type: string;
   @Input() supportType: string;
-  constructor(private resourceMap: ResourceMap, private resourceService: ResourceService) { }
+  constructor( private resourceService: ResourceService) { }
   isHover: boolean;
   interval: number;
   state: string;
   ngOnInit(): void {
-    this.resourceMap.get(this.resourceName);
     this.state = 'in';
   }
   active(){

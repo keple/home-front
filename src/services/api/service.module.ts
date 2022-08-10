@@ -8,11 +8,12 @@ import {ContactServiceImpl} from './contact/ContactServiceImpl';
 import {ContactService} from '../abstract/ContactService';
 import {WebsocketService} from './WebsocketService';
 
+
 @NgModule({
   declarations: [
   ],
   imports: [
-    ApiConfigModule
+    ApiConfigModule,
   ],
   providers: [
     {provide : CommonService, useClass : CommonServiceImpl},

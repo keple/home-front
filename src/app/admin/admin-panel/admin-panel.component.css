@@ -1,0 +1,23 @@
+.admin-panel-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.child-routes-container {
+  padding: 10px;
+}
+.side-menu-container {
+  width: 14%;
+  height: 100%;
+  background: #eeeeee;
+}
+.child-routes-container {
+  width: 80%;
+}
+.menu-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-evenly;
+}

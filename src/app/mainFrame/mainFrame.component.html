@@ -1,13 +1,13 @@
 <div class="main-frame-container">
   <div class="grid-container">
     <div class="top-nav">
-<!--      <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>-->
-      <app-nav></app-nav>
+
+      <app-nav [drawer]="drawer"></app-nav>
 
     </div>
     <div class="inner-container">
       <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop">
-        <mat-drawer #drawer [mode]="over">
+        <mat-drawer #drawer [mode]="toggleOption.push">
           <app-side-menu></app-side-menu>
         </mat-drawer>
         <mat-drawer-content>

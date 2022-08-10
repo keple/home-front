@@ -7,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainFrameComponent implements OnInit {
   hasBackdrop: boolean;
-  over: string
-  constructor() { }
-
+  toggleOption = {
+  over: 'over',
+  push: 'push',
+  side: 'side'
+};
   ngOnInit(): void {
-    this.hasBackdrop = true;
-    this.over = 'over';
+    this.hasBackdrop = false;
   }
 
 }

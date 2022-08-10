@@ -4,7 +4,7 @@ import {AdminFileManagementComponent} from './admin-file-management/admin-file-m
 
 
 const routes: Routes = [
-  {path: '/admin/fileManagement', component: AdminFileManagementComponent}
+  {path: 'admin/fileManagement', component: AdminFileManagementComponent}
 ];
 
 @NgModule({
@@ -13,4 +13,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AdminRouteModule { }

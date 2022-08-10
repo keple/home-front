@@ -13,9 +13,7 @@ export class CommonServiceMock implements CommonService {
   getMenuList(): Promise<Array<MenuDto>> {
     return new Promise((resolve , reject) => {
       resolve([
-        new MenuDto('DashBoard' , '/dashBoard'),
-        new MenuDto('Search', '/search') ,
-        new MenuDto('Files', '/files')
+        new MenuDto('DashBoard' , '메인', '/'),
       ]);
     });
   }
