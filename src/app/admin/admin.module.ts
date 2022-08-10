@@ -10,6 +10,9 @@ import {AdminPortfolioManagementComponent} from './admin-portfolio-management/ad
 import {AdminUserManagementComponent} from './admin-user-management/admin-user-management.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations : [
@@ -24,7 +27,10 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatTooltipModule
   ],
   exports : [
     AdminPanelComponent,

@@ -34,7 +34,7 @@ import { ProjectHealthCheckComponent } from './project-health-check/project-heal
 import { CareerComponent } from './career/career.component';
 import {MatListModule} from '@angular/material/list';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
-import {DialogModule} from './dialog/DialogModule';
+import {DialogModule} from './configuration/DialogModule';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import {MatTabsModule} from '@angular/material/tabs';

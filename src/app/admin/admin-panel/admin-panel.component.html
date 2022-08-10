@@ -1,7 +1,7 @@
 <div class="admin-panel-container">
-  <div class="side-menu-container">
+  <div class="side-menu-container box-shadow">
     <mat-list>
-      <mat-list-item class="pointer" *ngFor="let menu of subMenuList" routerLink="{{menu.getPath()}}">
+      <mat-list-item class="pointer hvr-sweep-to-right" *ngFor="let menu of subMenuList" routerLink="{{menu.getPath()}}">
         <div class="menu-item">
           <i class="fa-solid fa-book"></i>
           <span>{{ menu.getDisplayName() }}</span>

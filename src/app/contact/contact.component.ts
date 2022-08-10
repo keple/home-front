@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {ContactService} from "../../services/abstract/ContactService";
+import {ContactService} from '../../services/abstract/ContactService';
 
 @Component({
   selector: 'app-contact',
