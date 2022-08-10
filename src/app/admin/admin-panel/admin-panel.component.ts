@@ -19,7 +19,7 @@ export class AdminPanelComponent implements OnInit {
     this.commonService.getSubMenuList('Management').then((data) => {
       this.subMenuList = data;
       this.subMenuList.forEach((dt) => {
-        routesConfig.push({path: `${dt.getPath()}` , component: this.componentMap.get(dt.getMenuId())});
+        routesConfig.push({path: `${dt.getPath()}` , component: this.componentMap.get(dt.getMenuId()) , menuName: dt.getDisplayName()});
       });
       const managementRouteConfig = this.router.config.filter((r) => r.path.includes('management'));
       managementRouteConfig[0].children = routesConfig;
@@ -31,5 +31,4 @@ export class AdminPanelComponent implements OnInit {
 
     });
   }
-
 }
