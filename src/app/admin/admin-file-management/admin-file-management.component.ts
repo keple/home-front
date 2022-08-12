@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {FileManagementService} from "../service/fileManagement.service";
+import {FileDto} from "../../../model/FileDto";
+import {AdminFileDto} from "../model/AdminFileDto";
 
 @Component({
   selector: 'app-admin-file-management',
@@ -24,10 +27,13 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class AdminFileManagementComponent implements OnInit {
   mouseIn: boolean;
-
-  constructor() { }
+  fileList: Array<AdminFileDto>;
+  constructor(private fileManagement: FileManagementService) { }
 
   ngOnInit(): void {
+    this.fileManagement.getManagedFileList().then((data) => {
+      this.fileList = data;
+    });
   }
   changeInState() {
     this.mouseIn = true;

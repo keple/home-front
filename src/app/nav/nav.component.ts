@@ -6,7 +6,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {UserAuthComponent} from '../user-auth/user-auth.component';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {MatDrawer} from "@angular/material/sidenav";
+import {MatDrawer} from '@angular/material/sidenav';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',

@@ -5,7 +5,7 @@ import {FileDto} from '../../../model/FileDto';
 import {AxiosError} from '../../../model/response/AxiosError';
 import {ErrorResponseContentComponent} from '../../../app/error-response-content/error-response-content.component';
 import {MatDialog} from '@angular/material/dialog';
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 @Injectable()
 export class ResourceServiceImpl implements ResourceService {
   constructor(private apiConfig: ApiConfig, private sanitizer: DomSanitizer){
@@ -17,7 +17,7 @@ export class ResourceServiceImpl implements ResourceService {
       method: 'get',
     }).then(({data}) => {
       if (!data) { return; }
-      return data.map((x) =>  new FileDto(x.documentType, x.filename , null));
+      return data.map((x) =>  new FileDto(x));
     });
   }
   async getFileForViewer(filename): Promise<ArrayBuffer> {

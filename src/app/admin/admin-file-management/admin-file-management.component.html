@@ -7,9 +7,9 @@
         </div>
       </div>
     </div>
-    <div class="file-upload-container">
+    <div class="file-upload-container" *ngFor="let file of fileList">
       <mat-toolbar  class="rounded-top" >
-        <span>이력서</span>
+        <span>{{file.getDisplayName()}} [{{file.getProvidedType()}}]</span>
         <span class="spacer"></span>
         <div class="rounded-button bg-red pointer">
           <i class="fa-solid fa-minus"></i>
@@ -21,24 +21,7 @@
         <div class="rounded-button pointer bg-blue " >
           <i class="fa-solid fa-2x fa-paperclip"></i>
         </div>
-        <input id="resume" type="file"/>
-      </div>
-    </div>
-    <div class="file-upload-container">
-      <mat-toolbar  class="rounded-top">
-        <span>경력증명서</span>
-        <span class="spacer"></span>
-        <div class="rounded-button bg-red pointer">
-          <i class="fa-solid fa-minus"></i>
-        </div>
-      </mat-toolbar>
-      <mat-divider></mat-divider>
-      <div class="file-uplaod-row">
-        <input class="upload-name" placeholder="파일선택" disabled>
-        <div class="rounded-button pointer bg-blue" >
-          <i class="fa-solid fa-2x fa-paperclip"></i>
-        </div>
-        <input id="career" type="file"/>
+        <input id="{{file.getDocName()}}" type="file"/>
       </div>
     </div>
   </div>
