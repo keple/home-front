@@ -28,3 +28,8 @@
   padding: 10px;
   justify-content: flex-start;
 }
+
+.sticky {
+  position : sticky;
+  top: 0;
+}

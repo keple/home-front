@@ -1,13 +1,11 @@
 <div class="main-frame-container">
   <div class="grid-container">
     <div class="top-nav">
-
       <app-nav [drawer]="drawer"></app-nav>
-
     </div>
     <div class="inner-container">
       <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop">
-        <mat-drawer #drawer [mode]="toggleOption.push">
+        <mat-drawer #drawer [autoFocus]="false" [mode]="toggleOption.push">
           <app-side-menu></app-side-menu>
         </mat-drawer>
         <mat-drawer-content>

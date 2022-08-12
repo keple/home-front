@@ -1,6 +1,6 @@
 <div class="admin-panel-container">
   <div class="side-menu-container box-shadow bg-gray">
-    <mat-list color="primary">
+    <mat-list class="sticky">
       <mat-list-item class="pointer hvr-sweep-to-right" *ngFor="let menu of subMenuList" routerLink="{{menu.getPath()}}">
         <div class="menu-item">
           <i class="fa-solid fa-book"></i>

@@ -3,7 +3,7 @@ body {
 
 }
 .main-frame-container {
-
+  height:100%;
 }
 .grid-container {
   display:grid;
