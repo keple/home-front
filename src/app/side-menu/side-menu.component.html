@@ -1,24 +1,12 @@
 <div class="side-menu-container">
   <div class="side-area">
-      <div class="menu-icons pointer hvr-shutter-in-vertical ">
+      <div class="menu-icons pointer hvr-shutter-in-vertical " routerLink="/">
         <div class="icon"><i class="fa-solid fa-2x fa-house"></i></div>
-        <div class="tag">ABOUT</div>
+        <div class="tag">INTRO</div>
       </div>
-      <div class="menu-icons pointer hvr-shutter-in-horizontal ">
-        <div class="icon"><i class="fa-solid fa-2x fa-images"></i></div>
-        <div class="tag">CAREER</div>
-      </div>
-    <div class="menu-icons pointer hvr-shutter-in-horizontal ">
-      <div class="icon"><i class="fa-solid fa-2x fa-images"></i></div>
-      <div class="tag">DOWNLOADS</div>
-    </div>
-    <div class="menu-icons pointer hvr-shutter-in-horizontal ">
-      <div class="icon"><i class="fa-solid fa-2x fa-images"></i></div>
-      <div class="tag">PROJECTS</div>
-    </div>
-    <div class="menu-icons pointer hvr-shutter-in-horizontal ">
-      <div class="icon"><i class="fa-solid fa-2x fa-images"></i></div>
-      <div class="tag">CONTACT</div>
+    <div class="menu-icons pointer hvr-shutter-in-vertical " *ngFor="let menu of menuList" routerLink="{{menu.getPath()}}">
+      <div class="icon"><i class="fa-solid fa-2x fa-house"></i></div>
+      <div class="tag">{{menu.getDisplayName()}}</div>
     </div>
   </div>
 </div>

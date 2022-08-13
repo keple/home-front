@@ -1,4 +1,4 @@
-<div class="toolbar" role="banner">
+<div class="nav-container">
   <div class="nav-front">
     <i class="fa-solid fa-2x fa-bars pointer"
        (click)="drawer.toggle()"
@@ -6,11 +6,11 @@
     </i>
   </div>
   <div class="nav-center">
-    <div class="menu-container">
-      <div class="menu-item hvr-sweep-to-top" *ngFor="let menu of menuList" routerLink="{{menu.getPath()}}">
-        <h2>{{menu.getDisplayName()}}</h2>
-      </div>
-    </div>
+<!--    <div class="menu-container">-->
+<!--      <div class="menu-item hvr-sweep-to-top" *ngFor="let menu of menuList" routerLink="{{menu.getPath()}}">-->
+<!--        <h2>{{menu.getDisplayName()}}</h2>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
   <div class="nav-end">
     <!--관리자 모드로 변경-->

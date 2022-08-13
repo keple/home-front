@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {FileManagementService} from "../service/fileManagement.service";
-import {FileDto} from "../../../model/FileDto";
-import {AdminFileDto} from "../model/AdminFileDto";
+import {FileManagementService} from '../service/fileManagement.service';
+import {AdminFileDto} from '../model/AdminFileDto';
+import {MatDialog} from '@angular/material/dialog';
+import {CreateFileDialogComponent} from '../dialogs/create-file-dialog/create-file-dialog.component';
 
 @Component({
   selector: 'app-admin-file-management',
@@ -28,7 +29,7 @@ import {AdminFileDto} from "../model/AdminFileDto";
 export class AdminFileManagementComponent implements OnInit {
   mouseIn: boolean;
   fileList: Array<AdminFileDto>;
-  constructor(private fileManagement: FileManagementService) { }
+  constructor(private fileManagement: FileManagementService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.fileManagement.getManagedFileList().then((data) => {
@@ -43,5 +44,10 @@ export class AdminFileManagementComponent implements OnInit {
   }
   addFileManageItem(): void {
     console.log('addItem!');
+    this.dialog.open(CreateFileDialogComponent , {
+      width: `500px`,
+      height: `700px`
+    });
+
   }
 }

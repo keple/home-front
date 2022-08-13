@@ -13,7 +13,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatToolbar, MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {AdminServiceModule} from "./service/admin.service.module";
+import {AdminServiceModule} from './service/admin.service.module';
+import {AdminDialogModule} from './dialogs/AdminDialog.module';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations : [
@@ -23,8 +25,9 @@ import {AdminServiceModule} from "./service/admin.service.module";
     AdminUserManagementComponent,
   ],
   imports : [
-    ComponentModule,
     AdminRouteModule,
+    AdminDialogModule,
+    ComponentModule,
     AdminServiceModule,
     BrowserModule,
     MatListModule,
@@ -32,7 +35,9 @@ import {AdminServiceModule} from "./service/admin.service.module";
     MatIconModule,
     MatDividerModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatDialogModule,
+    MatTooltipModule,
+
   ],
   exports : [
     AdminPanelComponent,

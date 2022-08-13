@@ -29,6 +29,7 @@
 .file-uplaod-row {
   display: flex;
   flex-direction : row;
+  align-items: center;
   width: 100%;
   padding: 25px;
 }

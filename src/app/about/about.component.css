@@ -3,8 +3,14 @@
   display: flex;
   flex-direction: row;
 }
-.about-contents .base-info {
+.area {
   width: 100%;
+}
+.area-title {
+  font-family: 'Kdam Thmor Pro', sans-serif font-sizelarge;
+  font-size: 40px;
+}
+.about-contents .base-info {
   padding : 5%;
   display:flex;
   flex-direction: column;

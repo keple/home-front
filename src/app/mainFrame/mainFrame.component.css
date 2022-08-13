@@ -14,13 +14,12 @@ body {
 }
 .top-nav {
   z-index: 999;
-  background-color:#333333;
-  min-height:20vh;
+  opacity : .6;
+  height:20vh;
   grid-column-start :1;
   grid-column-end : 11;
   grid-row-start : 1;
   grid-row-end : 2;
-
 }
 
 .inner-container {
