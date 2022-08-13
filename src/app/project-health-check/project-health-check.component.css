@@ -1,8 +1,12 @@
 .project-modules-area{
   display: flex;
+
+}
+.project-modules-area .base-info {
+  display: flex;
   flex-wrap: wrap;
 }
-.project-modules-area div {
+.project-modules-area .base-info div {
   padding:20px;
   width:300px;
   height:300px;

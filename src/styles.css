@@ -126,3 +126,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   box-shadow:0 4px 12px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
 
+.area {
+  width: 100%;
+}
+.area-sm {
+  width: 60%;
+}
+.area-title {
+  font-family: 'Kdam Thmor Pro', sans-serif font-sizelarge;
+  font-size: 2rem;
+  line-height: 2rem
+}

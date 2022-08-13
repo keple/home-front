@@ -4,6 +4,7 @@
   grid-template-rows: 15% 35% 25% 25%;
   min-width:100%;
   min-height:100%;
+  background-image: url("../../assets/background-image/hd-wallpaper-g185348fe6_1920.jpg");
 }
 .nav-front {
   grid-column-start : 1;
