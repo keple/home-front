@@ -1,7 +1,9 @@
-import {Component, OnInit, SecurityContext} from '@angular/core';
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
+import {Component, ElementRef, OnInit, SecurityContext} from '@angular/core';
+import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {ResourceService} from '../../services/abstract/ResourceService';
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {MainFrameComponent} from "../mainFrame/mainFrame.component";
+import {componentShowup} from "../animation/ComponentShowAnimation";
 
 @Component({
   selector: 'app-career',
@@ -22,13 +24,24 @@ import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
           style({opacity: 1 , transform: `translateX(0px)`}),
         ]))
       ),
+    ]),
+    trigger('inShowArea' , [
+      state('show' , style({opacity : 1})),
+      state('none' , style({opacity : 0})),
+      transition('none=>show',
+        useAnimation(componentShowup , {})
+      )
     ])
   ]
 })
 export class CareerComponent implements OnInit {
   private pageNum: number;
+  public inShowArea = false;
   public pageSrcBlob: Array<SafeResourceUrl>;
-  constructor(private resourceService: ResourceService, private sanitizer: DomSanitizer) { }
+  constructor(private resourceService: ResourceService,
+              private sanitizer: DomSanitizer,
+              private elRef: ElementRef ,
+              private containerScrollRef: MainFrameComponent) { }
 
   ngOnInit(): void {
     this.pageNum = 1;
@@ -38,6 +51,12 @@ export class CareerComponent implements OnInit {
     });
     this.resourceService.getFileForViewer('gridwiz').then((data) => {
       this.pageSrcBlob[1] = URL.createObjectURL(new Blob([data] , { type: 'text/plain' }));
+    });
+    this.containerScrollRef.scrollEvent.subscribe(scroll => {
+      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
+        console.log('chage to true');
+        this.inShowArea = true;
+      }
     });
   }
   showPageNum(pageNum, careerType): void {

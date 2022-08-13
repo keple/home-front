@@ -39,6 +39,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AdminModule} from './admin/admin.module';
+import { IntroNavigationComponent } from './intro-navigation/intro-navigation.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {AdminModule} from './admin/admin.module';
     ProjectHealthCheckComponent,
     CareerComponent,
     ContactComponent,
+    IntroNavigationComponent,
   ],
   imports: [
     AdminModule,

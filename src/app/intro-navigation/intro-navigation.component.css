@@ -1,0 +1,11 @@
+.intro-navigation-container {
+  width: 100px;
+  height: 400px;
+  position: absolute;
+  background : #333333;
+  opacity : .2;
+  top : 250px;
+  left : 50px;
+  z-index:999;
+  border-radius: 20px;
+}

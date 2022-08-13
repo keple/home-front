@@ -10,6 +10,10 @@ export class ErrorResponseContentComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<ErrorResponseContentComponent>,
               @Inject(MAT_DIALOG_DATA) public data: {statusCode: number, message: string}) {
+    if (data.statusCode === 401){
+      // localStorage에서 토큰항목 제거
+      localStorage.removeItem('token');
+    }
   }
   ngOnInit(): void {
   }

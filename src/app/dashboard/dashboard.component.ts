@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MainFrameComponent} from "../mainFrame/mainFrame.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -7,20 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   events: Array<any>;
-  constructor() { }
+  constructor(private mainFrameComponent: MainFrameComponent) { }
 
   ngOnInit(): void {
-     this.events = [{
-      badgeClass: 'info',
-      badgeIconClass: 'glyphicon-check',
-      title: 'First heading',
-      content: 'Some awesome content.'
-    }, {
-      badgeClass: 'warning',
-      badgeIconClass: 'glyphicon-credit-card',
-      title: 'Second heading',
-      content: 'More awesome content.'
-    }];
   }
-
+  getScrollPositionWhenChildLoaded(): void {
+    console.log('emitted');
+    this.mainFrameComponent.getScrollPositionWhenChildLoaded();
+  }
 }
