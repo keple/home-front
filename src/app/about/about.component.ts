@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Outpu
 import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {MainFrameComponent} from '../mainFrame/mainFrame.component';
 import {componentShowup} from '../animation/ComponentShowAnimation';
+import {NavigationScrollConnector} from "../connector/navigationScrollConnector";
 
 @Component({
   selector: 'app-about',
@@ -19,8 +20,11 @@ import {componentShowup} from '../animation/ComponentShowAnimation';
 })
 export class AboutComponent implements OnInit , AfterViewInit {
   @Output() loadEvent = new EventEmitter();
+  inposition: boolean;
   inShowArea: boolean;
-  constructor(private elRef: ElementRef , private containerScrollRef: MainFrameComponent) {
+  constructor(private elRef: ElementRef ,
+              private containerScrollRef: MainFrameComponent,
+              private navigationConnector: NavigationScrollConnector) {
   }
 
   ngOnInit(): void {
@@ -30,7 +34,12 @@ export class AboutComponent implements OnInit , AfterViewInit {
       // console.log('get scroll event' , this.elRef.nativeElement.offsetTop , scroll.scrollTop);
       if (this.elRef.nativeElement.offsetTop <= scroll.scrollTop && !this.inShowArea) {
         console.log('chage to true');
+        console.log('offset bottom' , this.elRef.nativeElement.getBoundingClientRect());
         this.inShowArea = true;
+      }
+      if  (this.elRef.nativeElement.offsetTop <= scroll.scrollTop &&
+        (this.elRef.nativeElement.offsetTop + this.elRef.nativeElement.getBoundingClientRect().height) >= scroll.scrollTop){
+        this.navigationConnector.setActive('about');
       }
     });
   }

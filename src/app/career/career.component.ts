@@ -1,9 +1,10 @@
-import {Component, ElementRef, OnInit, SecurityContext} from '@angular/core';
+import {Component, ElementRef, OnInit, Output, SecurityContext, EventEmitter} from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {ResourceService} from '../../services/abstract/ResourceService';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {MainFrameComponent} from "../mainFrame/mainFrame.component";
 import {componentShowup} from "../animation/ComponentShowAnimation";
+import {NavigationScrollConnector} from "../connector/navigationScrollConnector";
 
 @Component({
   selector: 'app-career',
@@ -35,13 +36,15 @@ import {componentShowup} from "../animation/ComponentShowAnimation";
   ]
 })
 export class CareerComponent implements OnInit {
+  @Output() inPositionEvent = new EventEmitter();
   private pageNum: number;
   public inShowArea = false;
   public pageSrcBlob: Array<SafeResourceUrl>;
   constructor(private resourceService: ResourceService,
               private sanitizer: DomSanitizer,
               private elRef: ElementRef ,
-              private containerScrollRef: MainFrameComponent) { }
+              private containerScrollRef: MainFrameComponent,
+              private navigationConnector: NavigationScrollConnector) { }
 
   ngOnInit(): void {
     this.pageNum = 1;
@@ -56,6 +59,10 @@ export class CareerComponent implements OnInit {
       if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
         console.log('chage to true');
         this.inShowArea = true;
+      }
+      if  (this.elRef.nativeElement.offsetTop <= scroll.scrollTop &&
+        (this.elRef.nativeElement.offsetTop + this.elRef.nativeElement.getBoundingClientRect().height) >= scroll.scrollTop){
+        this.navigationConnector.setActive('career');
       }
     });
   }

@@ -40,6 +40,7 @@ import { ContactComponent } from './contact/contact.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AdminModule} from './admin/admin.module';
 import { IntroNavigationComponent } from './intro-navigation/intro-navigation.component';
+import {NavigationScrollConnector} from './connector/navigationScrollConnector';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,9 @@ import { IntroNavigationComponent } from './intro-navigation/intro-navigation.co
     CareerComponent,
     ContactComponent,
     IntroNavigationComponent,
+  ],
+  providers: [
+    NavigationScrollConnector
   ],
   imports: [
     AdminModule,
@@ -86,7 +90,6 @@ import { IntroNavigationComponent } from './intro-navigation/intro-navigation.co
     MatListModule,
     MatTabsModule
   ],
-  providers: [],
   bootstrap: [MainFrameComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Output, EventEmitter} from '@angular/core';
 import {ResourceService} from '../../services/abstract/ResourceService';
 import {FileDto} from '../../model/FileDto';
 import {MatDialog} from '@angular/material/dialog';
-import {ErrorResponseContentComponent} from '../error-response-content/error-response-content.component';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {componentShowup} from '../animation/ComponentShowAnimation';
 import {MainFrameComponent} from '../mainFrame/mainFrame.component';
+import {NavigationScrollConnector} from '../connector/navigationScrollConnector';
 
 @Component({
   selector: 'app-file-view',
@@ -27,7 +27,8 @@ export class FileViewComponent implements OnInit {
   constructor(private resourceService: ResourceService,
               private dialog: MatDialog,
               private elRef: ElementRef,
-              private containerScrollRef: MainFrameComponent) { }
+              private containerScrollRef: MainFrameComponent,
+              private navigationConnector: NavigationScrollConnector) { }
 
   ngOnInit(): void {
     this.resourceService.getFileList().then((data) => {
@@ -36,8 +37,11 @@ export class FileViewComponent implements OnInit {
     });
     this.containerScrollRef.scrollEvent.subscribe(scroll => {
       if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
-        console.log('chage to true');
         this.inShowArea = true;
+      }
+      if  (this.elRef.nativeElement.offsetTop <= scroll.scrollTop &&
+        (this.elRef.nativeElement.offsetTop + this.elRef.nativeElement.getBoundingClientRect().height) >= scroll.scrollTop){
+        this.navigationConnector.setActive('fileview');
       }
     });
   }

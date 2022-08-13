@@ -1,19 +1,19 @@
 <div class="intro-navigation-container">
   <div class="icon-container">
-    <div class="icon-career">
-      <i class="fa-solid fa-user"></i>
+    <div class="icon-career pointer" [ngClass]="{'active' : currentPosition==='about'}">
+      <i class="fa-solid fa-2x fa-user"></i>
     </div>
-    <div class="icon-career">
-      <i class="fa-solid fa-suitcase"></i>
+    <div class="icon-career pointer" [ngClass]="{'active' : currentPosition==='career'}">
+      <i class="fa-solid fa-2x fa-suitcase"></i>
     </div>
-    <div class="icon-career">
-      <i class="fa-solid fa-download"></i>
+    <div class="icon-career pointer" [ngClass]="{'active' : currentPosition==='fileview'}">
+      <i class="fa-solid fa-2x fa-download"></i>
     </div>
-    <div class="icon-career">
-      <i class="fa-solid fa-diagram-project"></i>
+    <div class="icon-career pointer" [ngClass]="{'active' : currentPosition==='project'}">
+      <i class="fa-solid fa-2x fa-diagram-project"></i>
     </div>
-    <div class="icon-career">
-      <i class="fa-solid fa-message-middle"></i>
+    <div class="icon-career pointer" [ngClass]="{'active' : currentPosition==='contact'}">
+      <i class="fa-solid fa-2x fa-envelope"></i>
     </div>
   </div>
 </div>
