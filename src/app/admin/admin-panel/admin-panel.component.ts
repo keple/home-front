@@ -21,7 +21,9 @@ export class AdminPanelComponent implements OnInit {
       this.subMenuList.forEach((dt) => {
         routesConfig.push({path: `${dt.getPath()}` , component: this.componentMap.get(dt.getMenuId()) , menuName: dt.getDisplayName()});
       });
-      const managementRouteConfig = this.router.config.filter((r) => r.path.includes('management'));
+      // 리팩터링 대상임
+      const introRoute = this.router.config.filter((r) => r.path === 'intro');
+      const managementRouteConfig = introRoute[0].children.filter((r) => r.path.includes('management'));
       managementRouteConfig[0].children = routesConfig;
       const newConfig = [
         ...this.router.config,

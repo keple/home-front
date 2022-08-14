@@ -41,6 +41,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {AdminModule} from './admin/admin.module';
 import { IntroNavigationComponent } from './intro-navigation/intro-navigation.component';
 import {NavigationScrollConnector} from './connector/navigationScrollConnector';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { RouteIndexComponent } from './route-index/route-index.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import {NavigationScrollConnector} from './connector/navigationScrollConnector';
     CareerComponent,
     ContactComponent,
     IntroNavigationComponent,
+    WelcomePageComponent,
+    RouteIndexComponent,
   ],
   providers: [
     NavigationScrollConnector
@@ -90,6 +94,6 @@ import {NavigationScrollConnector} from './connector/navigationScrollConnector';
     MatListModule,
     MatTabsModule
   ],
-  bootstrap: [MainFrameComponent]
+  bootstrap: [WelcomePageComponent]
 })
 export class AppModule { }

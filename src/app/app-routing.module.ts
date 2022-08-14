@@ -5,11 +5,16 @@ import {SearchViewComponent} from './search-view/search-view.component';
 import {FileViewComponent} from './file-view/file-view.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserAuthComponent} from './user-auth/user-auth.component';
-import {CreateFileDialogComponent} from "./admin/dialogs/create-file-dialog/create-file-dialog.component";
+import {CreateFileDialogComponent} from './admin/dialogs/create-file-dialog/create-file-dialog.component';
+import {WelcomePageComponent} from './welcome-page/welcome-page.component';
+import {RouteIndexComponent} from './route-index/route-index.component';
+import {MainFrameComponent} from './mainFrame/mainFrame.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
-  {path: 'createDialog' , component: CreateFileDialogComponent}
+  {path: '', component: RouteIndexComponent },
+  {path: 'intro', component: MainFrameComponent , children: [
+      {path: '', component: DashboardComponent}
+    ]}
 ];
 
 @NgModule({

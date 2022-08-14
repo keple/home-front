@@ -20,18 +20,23 @@ export class CommonServiceImpl implements CommonService{
       url: 'common/menus',
       method: 'get',
     }).then<Array<MenuDto>>(({data}) => {
-      const additionalRouteConfig = [];
+      const introRoutesConfig = this.router.config.filter(route => route.path === 'intro');
       const menuList = data.map((dt) => {
-        additionalRouteConfig.push({path: dt.path , component: this.componentMap.get(dt.menuId)});
+        // path가 같은 Route object가 있는지 확인
+        const previousMatches = introRoutesConfig[0].children.filter((r => {
+          if (r.path === dt.path) {return r; }
+        }));
+        if (previousMatches.length === 0){
+          introRoutesConfig[0].children.push({path: dt.path , component: this.componentMap.get(dt.menuId)});
+        }
         return new MenuDto(dt.menuId, dt.menuName, dt.path);
       });
-      // 대메뉴 메인페이지로의 라우팅 설정만 추가해준다.
       this.router.resetConfig(
         [
           ...this.router.config,
-          ...additionalRouteConfig
         ]
       );
+      console.log('change root router config' , this.router.config);
       return menuList;
     });
   }

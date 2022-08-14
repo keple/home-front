@@ -5,7 +5,8 @@ import {AdminPanelComponent} from './admin-panel/admin-panel.component';
 
 
 const routes: Routes = [
-];
+  ]
+;
 
 @NgModule({
   imports: [

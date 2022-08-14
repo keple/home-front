@@ -20,25 +20,7 @@ export class NavComponent implements OnInit {
   constructor(private commonService: CommonService, private dialog: MatDialog, private router: Router) {}
 
   ngOnInit(): void {
-    console.log('nav init!');
     this.menuList = [];
-    this.commonService.getMenuList().then((data) => {
-      console.log(data);
-      this.menuList = data;
-    });
-    this.router.events
-      .subscribe((event: NavigationEnd) => {
-        // You only receive NavigationStart events
-        if (event instanceof  NavigationEnd){
-          console.log(event.url);
-          const navigationMatch = this.menuList.filter(x => x.getPath() === event.url);
-          if (navigationMatch.length === 0){
-            this.navigateName = 'Unknown';
-          }else{
-            this.navigateName = navigationMatch[0].getDisplayName();
-          }
-        }
-      });
   }
   openDialog(): void {
     this.dialogRef = this.dialog.open(UserAuthComponent , {
