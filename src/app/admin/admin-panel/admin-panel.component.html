@@ -1,22 +1,27 @@
-<div class="admin-panel-container">
-  <div class="side-menu-container box-shadow bg-gray">
+<div class="admin-panel-container ">
+  <div class="side-menu-container ">
     <mat-list class="sticky">
-      <mat-list-item class="pointer hvr-sweep-to-right" *ngFor="let menu of subMenuList" routerLink="{{menu.getPath()}}">
+      <mat-list-item class="padder pointer hvr-sweep-to-right no-padder"
+                     *ngFor="let menu of subMenuList" routerLink="{{menu.getPath()}}"
+                     [ngClass]="{'active' : isCurrentRoute(menu.getPath())}"
+      >
         <div class="menu-item">
-          <i class="fa-solid fa-book"></i>
-          <span>{{ menu.getDisplayName() }}</span>
+          <div class="rounded-edge">
+            <div class="menu-icon-wrapper bg-gray">
+              <i class="fa-solid fa-book"></i>
+            </div>
+          </div>
+          <div class="menu-text">
+            <span>{{ menu.getDisplayName() }}</span>
+          </div>
         </div>
-        <mat-divider></mat-divider>
       </mat-list-item>
 
     </mat-list>
   </div>
-  <div class="child-routes-container">
-    <div class="navigation">
-
-    </div>
-    <div class="router-wrapper">
-      <router-outlet></router-outlet>
+  <div class="child-routes-container ">
+    <div class="router-wrapper bg-blue">
+      <router-outlet ></router-outlet>
     </div>
   </div>
 </div>

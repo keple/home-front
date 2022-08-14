@@ -5,9 +5,11 @@ import {SearchViewComponent} from './search-view/search-view.component';
 import {FileViewComponent} from './file-view/file-view.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserAuthComponent} from './user-auth/user-auth.component';
+import {CreateFileDialogComponent} from "./admin/dialogs/create-file-dialog/create-file-dialog.component";
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent}
+  {path: '', component: DashboardComponent},
+  {path: 'createDialog' , component: CreateFileDialogComponent}
 ];
 
 @NgModule({

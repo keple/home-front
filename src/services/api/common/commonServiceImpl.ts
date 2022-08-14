@@ -60,6 +60,7 @@ export class CommonServiceImpl implements CommonService{
       console.log(data);
       // 인증성공 알림
       this.snackBar.open('인증에 성공했습니다' , 'close', {duration: 2500});
+      localStorage.setItem('token' , data);
       return data;
     }).catch((error) => {
       console.log(error);

@@ -21,10 +21,9 @@ export class UserAuthComponent implements OnInit {
     console.log(this.username , this.password , null);
     const accessToken = await this.commonService.publishApiKey(this.username , this.password , null);
     // set local storage
-    await localStorage.setItem('token' , accessToken);
+
     this.dialogRef.close();
-    this.authenticationEvent.emit({});
-    // getMenuList를 다시호출함
+    this.authenticationEvent.emit(accessToken);
   }
   closeMatdialogClose() {
     this.dialogRef.close();

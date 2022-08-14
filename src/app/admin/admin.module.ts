@@ -16,6 +16,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {AdminServiceModule} from './service/admin.service.module';
 import {AdminDialogModule} from './dialogs/AdminDialog.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatCardModule} from "@angular/material/card";
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations : [
@@ -37,7 +40,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatToolbarModule,
     MatDialogModule,
     MatTooltipModule,
-
+    MatExpansionModule,
+    MatCardModule,
+    MatChipsModule
   ],
   exports : [
     AdminPanelComponent,

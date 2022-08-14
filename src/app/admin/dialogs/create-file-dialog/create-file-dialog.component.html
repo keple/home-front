@@ -1,15 +1,28 @@
 <div class="file-dialog-container">
   <div class="dialog-inner-container">
-    <div>파일타입</div>
-    <mat-form-field appearance="fill">
+    <div>
+      <mat-form-field appearance="fill" class="max-width">
+        <mat-label>Document Id</mat-label>
+        <input matInput [(ngModel)]="docName">
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill" class="max-width">
       <mat-label>파일타입</mat-label>
       <select matNativeControl required>
         <option value="download">Download</option>
         <option value="viewer">View</option>
       </select>
     </mat-form-field>
+
+    <div>
+      <mat-form-field appearance="fill" class="max-width">
+        <mat-label>DisplayName</mat-label>
+        <input matInput [(ngModel)]="displayName">
+      </mat-form-field>
+    </div>
+    <div>
+      <input type="file"/>
+    </div>
   </div>
-  <div>
-    <input matInput ng-model="docName"/>
-  </div>
+
 </div>

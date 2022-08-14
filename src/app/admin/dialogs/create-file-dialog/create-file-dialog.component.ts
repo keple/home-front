@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FileManagementService} from '../../service/fileManagement.service';
 
 @Component({
   selector: 'app-create-file-dialog',
@@ -6,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-file-dialog.component.css']
 })
 export class CreateFileDialogComponent implements OnInit {
-
   docName: string;
-  constructor() { }
+  displayName: string;
+  constructor(private fileManagementService: FileManagementService) { }
 
   ngOnInit(): void {
+  }
+  submitData(): void {
   }
 
 }

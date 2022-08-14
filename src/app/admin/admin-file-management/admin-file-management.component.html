@@ -1,29 +1,38 @@
-<div class="file-management-container">
-  <div class="inner-form">
-    <div class="command-container">
-      <div matTooltip="관리할 파일을 생성합니다." class="rounded-button bg-blue pointer box-shadow" (click)="addFileManageItem()"(mouseover)="changeInState()" (mouseout)="changeOutState()" >
-        <div  [@turnaround]="mouseIn? 'in' : 'out'">
-          <i  class="fa-solid fa-2x fa-plus"></i>
-        </div>
+<div class="file-management-container bg-white">
+  <div class="command-container">
+    <div matTooltip="관리할 파일을 생성합니다." class="rounded-button bg-blue pointer box-shadow" (click)="addFileManageItem()"(mouseover)="changeInState()" (mouseout)="changeOutState()" >
+      <div  [@turnaround]="mouseIn? 'in' : 'out'">
+        <i  class="fa-solid fa-2x fa-plus"></i>
       </div>
     </div>
-    <div class="file-upload-container" *ngFor="let file of fileList">
-      <mat-toolbar  class="rounded-top" >
-        <span>{{file.getDisplayName()}} [{{file.getProvidedType()}}]</span>
-        <span class="spacer"></span>
-        <div class="rounded-button bg-red pointer">
-          <i class="fa-solid fa-minus"></i>
+  </div>
+
+  <div class="file-upload-container bg-white">
+    <div *ngFor="let file of fileList">
+      <mat-card class="m-md box-shadow">
+        <div class ="file-name-wrapper hans-sans">
+          {{file.getDisplayName()}}
         </div>
-      </mat-toolbar>
-      <mat-divider></mat-divider>
-      <div class="file-uplaod-row">
-        <span>{{file.getFilePath()}} \\ {{file.getFilename()}}</span>
-        <input class="upload-name" placeholder="파일선택" disabled>
-        <div class="rounded-button pointer bg-blue " >
-          <i class="fa-solid fa-2x fa-paperclip"></i>
+        <mat-divider></mat-divider>
+        <div class="file-upload-row">
+          <div class="info-row">
+            <span>파일타입</span>
+            <span>{{file.getProvidedType()}}</span>
+          </div>
+          <div class="info-row">
+            <span>파일선택</span>
+            <div class="file-group">
+              <input id="{{file.getDocName()}}" type="file"/>
+            </div>
+
+          </div>
+
         </div>
-        <input id="{{file.getDocName()}}" type="file"/>
-      </div>
+        <div>
+          <button mat-button (click)="updateDocument()">수정</button>
+          <button mat-button (click)="deleteDocument()">삭제</button>
+        </div>
+      </mat-card>
     </div>
   </div>
 </div>

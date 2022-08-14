@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Navigation, NavigationEnd, Router} from '@angular/router';
 import {CommonService} from '../../../services/abstract/CommonService';
 import {MenuDto} from '../../../model/MenuDto';
 import {ComponentMap} from '../../../resources/component.map';
@@ -28,7 +28,14 @@ export class AdminPanelComponent implements OnInit {
         ...routesConfig
       ];
       this.router.resetConfig(newConfig);
-
     });
+  }
+  isCurrentRoute(path): boolean {
+    const currentNavigation = this.router.getCurrentNavigation();
+    console.log('cur nav difference', currentNavigation, path);
+    if (this.router.url.includes(path)) {
+      return true;
+    }
+    return false;
   }
 }

@@ -4,6 +4,7 @@ import {FileManagementService} from '../service/fileManagement.service';
 import {AdminFileDto} from '../model/AdminFileDto';
 import {MatDialog} from '@angular/material/dialog';
 import {CreateFileDialogComponent} from '../dialogs/create-file-dialog/create-file-dialog.component';
+import {DeleteConfirmDialogComponent} from "../dialogs/delete-confirm-dialog/delete-confirm-dialog.component";
 
 @Component({
   selector: 'app-admin-file-management',
@@ -48,6 +49,15 @@ export class AdminFileManagementComponent implements OnInit {
       width: `500px`,
       height: `700px`
     });
-
+  }
+  updateDocument(): void {
+    // update confirm dialog
+  }
+  deleteDocument(): void {
+    // delete confirm dialog
+    this.dialog.open(DeleteConfirmDialogComponent , {
+      width: `500px`,
+      height: `700px`
+    });
   }
 }

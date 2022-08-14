@@ -1,15 +1,25 @@
 .file-management-container {
-  border-radius : 10px;
   width:100%;
   height:100%;
+  display: flex;
+  flex-direction : column;
 }
 .file-management-container .inner-form {
-  padding:4rem;
+  padding:1rem;
   height:100%;
+  display: flex;
+  flex-direction: column;
 }
 .file-upload-container {
-
+  display: flex;
+  flex-wrap : wrap;
+  flex : 1 0 25%;
+  width: 100%;
 }
+.file-upload-container div{
+  position: relative;
+}
+
 .file-upload-container .title {
   font-family: 'Noto Sans KR', sans-serif font-size;
   font-size: 1.1rem;
@@ -23,40 +33,25 @@
   justify-content: center;
   align-items:center;
   border-radius : 50%;
-  width: 50px;
-  height:50px;
+  width: 40px;
+  height:40px;
 }
-.file-uplaod-row {
-  display: flex;
-  flex-direction : row;
-  align-items: center;
+.file-upload-row {
   width: 100%;
-  padding: 25px;
+  margin:0;
+  display : flex;
+  flex-direction: column;
 }
-.file-uplaod-row input[type="file"] {  /* 파일 필드 숨기기 */
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip:rect(0,0,0,0);
-  border: 0;
+.info-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top : 1rem;
 }
-
-.file-uplaod-row .upload-name {
-  display: inline-block;
-  padding: .5em .75em;  /* label의 패딩값과 일치 */
-  font-size: inherit;
-  font-family: inherit;
-  line-height: normal;
-  vertical-align: middle;
-  border-style: none;
-  background-color: #f5f5f5;
-  border-radius: .25em;
-  -webkit-appearance: none; /* 네이티브 외형 감추기 */
-  -moz-appearance: none;
-  appearance: none;
+.file-group {
+  display: flex;
+  justify-content: flex-end;
 }
 .bg-blue {
   background: #1976d2;
@@ -79,3 +74,16 @@
 .spacer {
   flex: 1 1 auto;
 }
+.m-md {
+  margin: 25px;
+}
+.file-name-wrapper {
+  min-width: 100%;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size : 2rem;
+}
+
+

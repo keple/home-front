@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jua&family=Kdam+Thmor+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
 @import "./hover-min.css";
 
 body{
@@ -38,6 +38,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .font-kdam {
   font-family : 'Kdam Thmor Pro', sans-serif
+}
+.hans-sans {
+  font-family: 'Black Han Sans', sans-serif;
 }
 
 .common-title {
@@ -89,6 +92,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: white !important;
   color : black;
 }
+.bg-blue {
+  background: #1976d2;
+}
 .common-area {
   padding-bottom: 5%;
   min-height: 80vh;
@@ -137,4 +143,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-family: 'Kdam Thmor Pro', sans-serif font-sizelarge;
   font-size: 2rem;
   line-height: 2rem
+}
+.max-width {
+  width:100%;
+}
+.padder {
+  padding: 5px !important;
+}
+.no-padder {
+  padding: 0 !important;
+}
+.mat-list-item-content {
+  padding: 0 !important;
 }
