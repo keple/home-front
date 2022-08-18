@@ -1,14 +1,13 @@
 .nav-container {
   display:grid;
   gap : 1px;
-  grid-template-rows: 15% 35% 25% 25%;
   min-width:100%;
   min-height:100%;
-  background-image: url("../../assets/background-image/hd-wallpaper-g185348fe6_1920.jpg");
+  background: #000000;
 }
 .nav-front {
   grid-column-start : 1;
-  grid-column-end : 2;
+  grid-column-end : 1;
   display:flex;
   justify-content: flex-start;
   margin-left: 20px;
@@ -54,14 +53,6 @@
   display:flex;
   justify-content: center;
   color: white;
-}
-.menu-description {
-  grid-column-start:1;
-  grid-column-end:9;
-  grid-row-start : 2;
-  grid-row-end: 3;
-  display: flex;
-  align-items: center;
 }
 .nav-end button {
   width:100%;

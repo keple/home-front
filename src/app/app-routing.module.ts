@@ -9,10 +9,12 @@ import {CreateFileDialogComponent} from './admin/dialogs/create-file-dialog/crea
 import {WelcomePageComponent} from './welcome-page/welcome-page.component';
 import {RouteIndexComponent} from './route-index/route-index.component';
 import {MainFrameComponent} from './mainFrame/mainFrame.component';
+import {IntroGuard} from './guard/IntroGuard';
 
 const routes: Routes = [
   {path: '', component: RouteIndexComponent },
-  {path: 'intro', component: MainFrameComponent , children: [
+  {path: 'intro/:token', component: MainFrameComponent, canActivate: [IntroGuard]
+    , children: [
       {path: '', component: DashboardComponent}
     ]}
 ];

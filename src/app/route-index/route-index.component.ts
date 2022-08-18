@@ -11,5 +11,8 @@ export class RouteIndexComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  openWorkingDialog() {
+  }
+  openIntroAccessHelper() {
+  }
 }

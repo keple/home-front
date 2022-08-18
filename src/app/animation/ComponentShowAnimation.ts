@@ -8,10 +8,11 @@ export const componentShowup  = animation([
     ]))
 ]);
 
-export const componentShowupByScroll = trigger('inShowArea' , [
-  state('show' , style({opacity : 1})),
-  state('none' , style({opacity : 0})),
-  transition('none=>show',
-    useAnimation(componentShowup , {})
-  )
+export const shakeQuestionMark = animation ([
+  animate('1s linear' , keyframes([
+    style({transform: `translateX(-25px)`, transformOrigin : 'bottom'}),
+    style({transform: `translateX(25px)` , transformOrigin : 'bottom'}),
+    style({transform: `translateX(-25px)`, transformOrigin : 'bottom' })
+  ]))
 ]);
+

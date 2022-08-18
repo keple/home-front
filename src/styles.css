@@ -96,8 +96,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: #1976d2;
 }
 .common-area {
-  padding-bottom: 5%;
-  min-height: 80vh;
+  min-height:93vh;
 }
 .mat-dialog-container {
   padding: 0px !important;

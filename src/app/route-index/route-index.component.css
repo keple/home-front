@@ -1,0 +1,33 @@
+.index-container {
+  background-image: url("../../assets/background-image/hd-wallpaper-g185348fe6_1920.jpg");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.index-container .main-link-text {
+  z-index:999;
+  color: white;
+  font-family:'Black Han Sans', sans-serif;
+  font-size: 6rem;
+  margin-top:1rem;
+}
+.index-container .link-detail {
+  z-index: 999;
+  margin-left: 10px;
+}
+.index-container .link-detail div {
+  color: white;
+  font-family:'Black Han Sans', sans-serif;
+  font-size: 3rem;
+  line-height: normal;
+  margin-top : 0.5rem;
+  opacity : 0.6;
+}
+
+.index-container .link-detail div:hover {
+  opacity : 1;
+}

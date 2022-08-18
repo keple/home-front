@@ -8,6 +8,10 @@
 
           </div>
           <div class="message-contents-area">
+            <mat-form-field>
+              <mat-label>name</mat-label>
+              <input matInput [(ngModel)]="name"/>
+            </mat-form-field>
             <mat-form-field appearance="fill" class="max-width">
               <mat-label>Title</mat-label>
               <input matInput [(ngModel)]="title">
@@ -16,6 +20,7 @@
               <mat-label>Contents</mat-label>
               <textarea rows="17" matInput [(ngModel)]="contents"></textarea>
             </mat-form-field>
+            <button mat-button (click)="preSend()">captcha</button>
             <div class="button-area">
               <button mat-button (click)="submit()">Send</button>
             </div>
