@@ -1,9 +1,9 @@
 import {ResourceService} from '../../abstract/resource.service';
-import {ApiConfig} from '../../../app/configuration/api.config';
+import {ApiConfig} from '../../../../configuration/api.config';
 import {Injectable} from '@angular/core';
-import {FileDto} from '../../../model/FileDto';
-import {AxiosError} from '../../../model/response/AxiosError';
-import {ErrorResponseContentComponent} from '../../../app/error-response-content/error-response-content.component';
+import {FileDto} from '../../../../../model/FileDto';
+import {AxiosError} from '../../../../../model/response/AxiosError';
+import {ErrorResponseContentComponent} from '../../../../error-response-content/error-response-content.component';
 import {MatDialog} from '@angular/material/dialog';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 @Injectable()

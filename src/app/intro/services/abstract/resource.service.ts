@@ -1,4 +1,4 @@
-import {FileDto} from '../../model/FileDto';
+import {FileDto} from '../../../../model/FileDto';
 import {SafeResourceUrl} from '@angular/platform-browser';
 
 export abstract class ResourceService {

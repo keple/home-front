@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, Output, EventEmitter} from '@angular/core';
-import {ResourceService} from '../../../services/abstract/resource.service';
+import {ResourceService} from '../services/abstract/resource.service';
 import {FileDto} from '../../../model/FileDto';
 import {MatDialog} from '@angular/material/dialog';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';

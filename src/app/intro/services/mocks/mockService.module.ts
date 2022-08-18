@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonServiceMock} from './common/commonServiceMock';
+import {CommonMockService} from './common/common.mock.service';
 import {CommonService} from '../abstract/common.service';
 
 
@@ -11,7 +11,7 @@ import {CommonService} from '../abstract/common.service';
 
   ],
   providers: [
-    {provide : CommonService, useClass : CommonServiceMock}
+    {provide : CommonService, useClass : CommonMockService}
   ],
 })
 

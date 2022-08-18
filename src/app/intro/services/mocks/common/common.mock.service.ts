@@ -1,12 +1,12 @@
 import {CommonService} from '../../abstract/common.service';
 import {Injectable} from '@angular/core';
-import {MenuDto} from '../../../model/MenuDto';
-import {ServiceDto} from '../../../model/ServiceDto';
+import {MenuDto} from '../../../../../model/MenuDto';
+import {ServiceDto} from '../../../../../model/ServiceDto';
 
 @Injectable({
   providedIn : 'root'
 })
-export class CommonServiceMock implements CommonService {
+export class CommonMockService implements CommonService {
   public getSubMenuList(): Promise<MenuDto[]> {
       throw new Error('Method not implemented.');
   }

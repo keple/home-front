@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, EventEmitter, Output} from '@angular/core';
 import {ServiceDto} from '../../../model/ServiceDto';
-import {CommonService} from '../../../services/abstract/common.service';
+import {CommonService} from '../services/abstract/common.service';
 import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
 import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';

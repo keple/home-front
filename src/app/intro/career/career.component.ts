@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, Output, SecurityContext, EventEmitter} from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {ResourceService} from '../../../services/abstract/resource.service';
+import {ResourceService} from '../services/abstract/resource.service';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {MainFrameComponent} from "../../mainFrame/mainFrame.component";
 import {componentShowup} from "../../animation/ComponentShowAnimation";

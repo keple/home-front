@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ApiConfig} from '../../../app/configuration/api.config';
+import {ApiConfig} from '../../../../configuration/api.config';
 
 @Injectable()
 export class ContactImplService {

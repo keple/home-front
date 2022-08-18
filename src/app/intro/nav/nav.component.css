@@ -54,17 +54,25 @@
   justify-content: center;
   color: white;
 }
-.nav-end button {
+.nav-end .user-profile {
   width:100%;
   height:100%;
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  align-items: center;
 }
-.routing-text {
-  margin-left:3%;
-  font-size: 5rem;
-  color:white;
+.nav-end div .user-profile-img {
+  border-radius : 50%;
+  width: 60px;
+  height: 60px;
+  background : #1976d2;
 }
-.routing-text:before {
-  border-top : 12px solid #125699 ;
+.nav-end .user-profile .user-name-text {
+  width: 30%;
+  padding-left : 1rem;
 
 }
-
+.nav-end .user-profile .user-name-text span {
+  font-size:1.3rem;
+}

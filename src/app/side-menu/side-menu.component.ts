@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CommonService} from '../../services/abstract/common.service';
+import {CommonService} from '../intro/services/abstract/common.service';
 import {MenuDto} from '../../model/MenuDto';
 
 @Component({

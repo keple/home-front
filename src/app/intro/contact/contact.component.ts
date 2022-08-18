@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, Output, EventEmitter} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {ContactService} from '../../../services/abstract/contact.service';
+import {ContactService} from '../services/abstract/contact.service';
 import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
 import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
