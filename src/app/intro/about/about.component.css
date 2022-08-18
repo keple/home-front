@@ -1,18 +1,79 @@
+.about-container {
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
 .about-contents {
   padding-left: 5%;
+  z-index:999;
   display: flex;
   flex-direction: row;
+  align-items: space-evenly;
+  justify-content: center;
+  height:100%;
+
 }
 
-
+.about-contents .area-title {
+  display:flex;
+  flex-direction : column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+}
+.about-contents .area-title .title-group{
+  height: 300px;
+}
 .about-contents .base-info {
   padding : 5%;
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  height: 100%;
 }
 
-.base-info p {
-  font-size: large;
+.base-info div {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
 }
+.type-writer-area {
+  display: flex;
+  flex-direction: row;
+  margin-top : 50px;
+}
+.type-writer-area .ft-5 {
+  font-size: 5rem;
+}
+.type-writer-area .ft-4 {
+  font-size : 4rem;
+}
+.type-writer-area .cursor {
+  font-weight : bold;
+  margin-left : 7px;
+  font-size:4rem;
+  color: #1976d2;
+
+}
+.bg-about {
+  background-image : url("../../../assets/background-image/pexels-bess-hamiti-36487.jpg");
+  background-size : cover;
+  color: white;
+}
+.inActiveCursor {
+  animation-duration: 1s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function:ease;
+  animation-name: blink;
+}
+@keyframes blink {
+  from {
+    opacity : 0
+  }
+
+  to {
+    opacity : 1
+  }
+}
+

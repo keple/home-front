@@ -16,3 +16,9 @@ export const shakeQuestionMark = animation ([
   ]))
 ]);
 
+export const blinkAnimation = animation([
+  animate('1s linear' , keyframes([
+    style({opacity : 1}),
+    style({opacity : 0})
+  ]))
+] );

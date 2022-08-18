@@ -1,6 +1,6 @@
 .intro-navigation-container {
   width: 100px;
-  height: 400px;
+  height: 550px;
   position: fixed;
   /*background: linear-gradient(120deg, rgba(2,0,36,1) 3%, rgba(150,150,150,1) 100%);*/
   opacity : 1;
@@ -20,10 +20,11 @@
   align-items: center;
   flex-direction: column;
   color: white;
+  margin-top:7px;
 }
 .icon-career {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,4 +34,10 @@
 .active {
   color: #1976d2;
   background-color: rgba(255,255,255,1);
+}
+
+@media(max-width: 1000px) {
+  .icon-container {
+    display: none;
+  }
 }

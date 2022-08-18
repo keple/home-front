@@ -1,12 +1,34 @@
-<div class="about-container bg-gray common-area" [@inShowArea] = "inShowArea?'show':'none'">
-  <div class="common-title"><h2>ABOUT</h2></div>
+<div class="about-container bg-about common-area img-filter" [@inShowArea] = "inShowArea?'show':'none'">
+  <div class="common-title">
+    <h2>ABOUT</h2>
+  </div>
   <div class="about-contents focus-center">
     <div class="area-title area">
-      <span>기본정보</span>
+      <div class="title-group">
+        <h1>기본정보</h1>
+        <div class="type-writer-area">
+          <p class="ft-4 hans-sans">{{displayText}}</p>
+          <p class="cursor" [ngClass]="{'inActiveCursor' : !cursorActive}">|</p>
+        </div>
+      </div>
     </div>
     <div class="base-info area">
-      <p><i class="fa-brands fa-github"></i> Github : <a href="https://github.com/keple">https://github.com/keple</a></p>
+      <div>
+        <i class="fa-solid fa-2x fa-wrench"></i>
+        <span>Skills</span>
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip color="accent">AngularJs</mat-chip>
+          <mat-chip>Spring Boot</mat-chip>
+          <mat-chip color="primary" selected>MariaDB</mat-chip>
+        </mat-chip-list>
+      </div>
+      <div>
+        <i class="fa-brands fa-2x fa-github"></i>
+        <span>Github</span>
+        <p>
+          <a href="https://github.com/keple">https://github.com/keple</a>
+        </p>
+      </div>
     </div>
   </div>
-
 </div>
