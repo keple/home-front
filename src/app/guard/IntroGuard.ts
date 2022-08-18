@@ -14,7 +14,8 @@ export class IntroGuard implements CanActivate {
     // token 검증 후 access 가능하도록 변경
     return this.apiConfig.getNonSecureAxios()({
       url : 'auth/guard/validationToken',
-      data : route.params.token
+      data : route.params.token,
+      method: 'post'
     }).then((auth) => {
       localStorage.setItem('token' , route.params.token);
       return true;
