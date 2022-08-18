@@ -43,7 +43,13 @@ import { IntroNavigationComponent } from './intro-navigation/intro-navigation.co
 import {NavigationScrollConnector} from './connector/navigationScrollConnector';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouteIndexComponent } from './route-index/route-index.component';
-import {RECAPTCHA_LANGUAGE, RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from 'ng-recaptcha';
+import {
+  RECAPTCHA_LANGUAGE, RECAPTCHA_SETTINGS,
+  RECAPTCHA_V3_SITE_KEY,
+  RecaptchaFormsModule,
+  RecaptchaModule,
+  RecaptchaV3Module
+} from 'ng-recaptcha';
 import {IntroGuard} from "./guard/IntroGuard";
 import { WorkingDialogComponent } from './working-dialog/working-dialog.component';
 
@@ -95,13 +101,16 @@ import { WorkingDialogComponent } from './working-dialog/working-dialog.componen
     MatSidenavModule,
     MatListModule,
     MatTabsModule,
-    RecaptchaV3Module
+    RecaptchaFormsModule,
+    RecaptchaModule
   ],
   providers: [
     NavigationScrollConnector,
     IntroGuard,
-    {provide: RECAPTCHA_V3_SITE_KEY , useValue : '6LcELHohAAAAADn7f9vmcbpYQMKLSbynaZETt2gd' },
-    {provide: RECAPTCHA_LANGUAGE, useValue: 'kr'},
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {siteKey: '6LeXtYYhAAAAAPOJbs37_ttAbzZweep4Fz80cXkh'},
+    },
 
   ],
   bootstrap: [WelcomePageComponent]

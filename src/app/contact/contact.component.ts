@@ -6,6 +6,7 @@ import {NavigationScrollConnector} from '../connector/navigationScrollConnector'
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {componentShowup} from '../animation/ComponentShowAnimation';
 import {ReCaptchaV3Service} from "ng-recaptcha";
+import {MailDto} from "../../model/MailDto";
 
 @Component({
   selector: 'app-contact',
@@ -23,17 +24,16 @@ import {ReCaptchaV3Service} from "ng-recaptcha";
 })
 export class ContactComponent implements OnInit {
   @Output() inPositionEvent = new EventEmitter();
-  public title: string;
-  public contents: string;
   public inShowArea = false;
-  public name: string;
+  public mailDto: MailDto;
   constructor(private snackBar: MatSnackBar,
               private contactService: ContactService,
               private elRef: ElementRef,
               private containerScrollRef: MainFrameComponent,
               private navigationConnector: NavigationScrollConnector,
-              private recaptchaV3Service: ReCaptchaV3Service) { }
+              ) { }
   ngOnInit(): void {
+    this.mailDto = new MailDto({title : '' , contents : '' , mailerName : '' , captcha : ''});
     this.containerScrollRef.scrollEvent.subscribe(scroll => {
       if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
         console.log('chage to true');
@@ -47,8 +47,8 @@ export class ContactComponent implements OnInit {
   }
 
   submit(): void {
-    console.log('submit message' , this.title , this.contents);
-    this.contactService.sendMail(this.title, this.contents);
+    console.log('submit message' , this.mailDto);
+    this.contactService.sendMail(this.mailDto);
   }
   resolved($event): void {
     console.log($event);
@@ -56,11 +56,5 @@ export class ContactComponent implements OnInit {
   enterRoom(roomId): void {
     this.snackBar.open(`${roomId}` , 'close', {duration: 2500});
     // chat server에 연결
-  }
-  preSend(): void {
-    this.recaptchaV3Service.execute('beforeSendAction').subscribe((token)=> {
-      console.log('token',token);
-      // this.handleToken(token);
-    });
   }
 }

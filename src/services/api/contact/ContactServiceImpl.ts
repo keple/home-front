@@ -11,13 +11,12 @@ export class ContactServiceImpl {
       url: 'chat/sub/${roomId}'
     });
   }
-  sendMail(title: string , contents: string) {
+  sendMail(mailDto) {
     this.apiConfig.getNonSecureAxios()({
       url: 'notification/send',
       method: 'post',
       data : {
-        title,
-        contents
+        ...mailDto
       }
     }).then((data) => {
       console.log(data);
