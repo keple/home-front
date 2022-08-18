@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {CommonService} from '../../services/abstract/CommonService';
+import {CommonService} from '../../../services/abstract/common.service';
 import {Router, Routes} from '@angular/router';
 import {MatDialogRef} from '@angular/material/dialog';
 

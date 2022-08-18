@@ -1,10 +1,10 @@
 import {Component, ElementRef, OnInit, EventEmitter, Output} from '@angular/core';
-import {ServiceDto} from '../../model/ServiceDto';
-import {CommonService} from '../../services/abstract/CommonService';
-import {MainFrameComponent} from '../mainFrame/mainFrame.component';
-import {NavigationScrollConnector} from '../connector/navigationScrollConnector';
+import {ServiceDto} from '../../../model/ServiceDto';
+import {CommonService} from '../../../services/abstract/common.service';
+import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
+import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {componentShowup} from '../animation/ComponentShowAnimation';
+import {componentShowup} from '../../animation/ComponentShowAnimation';
 
 @Component({
   selector: 'app-project-health-check',
@@ -33,7 +33,7 @@ export class ProjectHealthCheckComponent implements OnInit {
       this.projectList = data;
     });
     this.containerScrollRef.scrollEvent.subscribe(scroll => {
-      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
+      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 700) && !this.inShowArea) {
         console.log('chage to true');
 
         this.inShowArea = true;

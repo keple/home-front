@@ -98,6 +98,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .common-area {
   min-height:93vh;
 }
+.focus-center {
+  margin-left : 10%;
+  margin-right : 10%;
+}
 .mat-dialog-container {
   padding: 0px !important;
 }

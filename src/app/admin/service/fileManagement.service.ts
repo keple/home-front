@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ApiConfig} from '../../configuration/apiConfig';
+import {ApiConfig} from '../../configuration/api.config';
 import {MenuDto} from '../../../model/MenuDto';
 import {AdminFileDto} from '../model/AdminFileDto';
 

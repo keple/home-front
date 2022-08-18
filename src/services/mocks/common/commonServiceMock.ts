@@ -1,4 +1,4 @@
-import {CommonService} from '../../abstract/CommonService';
+import {CommonService} from '../../abstract/common.service';
 import {Injectable} from '@angular/core';
 import {MenuDto} from '../../../model/MenuDto';
 import {ServiceDto} from '../../../model/ServiceDto';

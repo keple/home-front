@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {ApiConfig} from '../../../app/configuration/apiConfig';
+import {ApiConfig} from '../../../app/configuration/api.config';
 
 @Injectable()
-export class ContactServiceImpl {
+export class ContactImplService {
   constructor(private apiConfig: ApiConfig) {
 
   }

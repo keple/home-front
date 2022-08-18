@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {ApiConfig} from './apiConfig';
+import {ApiConfig} from './api.config';
 
 
 @NgModule({

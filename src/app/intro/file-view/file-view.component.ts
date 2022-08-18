@@ -1,11 +1,11 @@
 import {Component, ElementRef, OnInit, Output, EventEmitter} from '@angular/core';
-import {ResourceService} from '../../services/abstract/ResourceService';
-import {FileDto} from '../../model/FileDto';
+import {ResourceService} from '../../../services/abstract/resource.service';
+import {FileDto} from '../../../model/FileDto';
 import {MatDialog} from '@angular/material/dialog';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {componentShowup} from '../animation/ComponentShowAnimation';
-import {MainFrameComponent} from '../mainFrame/mainFrame.component';
-import {NavigationScrollConnector} from '../connector/navigationScrollConnector';
+import {componentShowup} from '../../animation/ComponentShowAnimation';
+import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
+import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
 
 @Component({
   selector: 'app-file-view',
@@ -36,7 +36,7 @@ export class FileViewComponent implements OnInit {
       this.files = data;
     });
     this.containerScrollRef.scrollEvent.subscribe(scroll => {
-      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
+      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 700) && !this.inShowArea) {
         this.inShowArea = true;
       }
       if  (this.elRef.nativeElement.offsetTop <= scroll.scrollTop &&

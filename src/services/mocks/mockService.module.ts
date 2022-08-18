@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonServiceMock} from './common/commonServiceMock';
-import {CommonService} from '../abstract/CommonService';
+import {CommonService} from '../abstract/common.service';
 
 
 @NgModule({

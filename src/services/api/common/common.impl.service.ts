@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {CommonService} from '../../abstract/CommonService';
+import {CommonService} from '../../abstract/common.service';
 import {MenuDto} from '../../../model/MenuDto';
-import {ApiConfig} from '../../../app/configuration/apiConfig';
+import {ApiConfig} from '../../../app/configuration/api.config';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ServiceDto} from '../../../model/ServiceDto';
 import {Router} from '@angular/router';
@@ -10,7 +10,7 @@ import {ComponentMap} from '../../../resources/component.map';
 @Injectable({
   providedIn : 'root'
 })
-export class CommonServiceImpl implements CommonService{
+export class CommonImplService implements CommonService{
   constructor(private apiConfig: ApiConfig, private snackBar: MatSnackBar, private router: Router, private componentMap: ComponentMap) {
     this.apiConfig = apiConfig;
   }

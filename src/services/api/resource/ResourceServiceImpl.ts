@@ -1,5 +1,5 @@
-import {ResourceService} from '../../abstract/ResourceService';
-import {ApiConfig} from '../../../app/configuration/apiConfig';
+import {ResourceService} from '../../abstract/resource.service';
+import {ApiConfig} from '../../../app/configuration/api.config';
 import {Injectable} from '@angular/core';
 import {FileDto} from '../../../model/FileDto';
 import {AxiosError} from '../../../model/response/AxiosError';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Navigation, NavigationEnd, Router} from '@angular/router';
-import {CommonService} from '../../../services/abstract/CommonService';
+import {CommonService} from '../../../services/abstract/common.service';
 import {MenuDto} from '../../../model/MenuDto';
 import {ComponentMap} from '../../../resources/component.map';
 

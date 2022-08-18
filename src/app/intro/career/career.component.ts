@@ -1,10 +1,10 @@
 import {Component, ElementRef, OnInit, Output, SecurityContext, EventEmitter} from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {ResourceService} from '../../services/abstract/ResourceService';
+import {ResourceService} from '../../../services/abstract/resource.service';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {MainFrameComponent} from "../mainFrame/mainFrame.component";
-import {componentShowup} from "../animation/ComponentShowAnimation";
-import {NavigationScrollConnector} from "../connector/navigationScrollConnector";
+import {MainFrameComponent} from "../../mainFrame/mainFrame.component";
+import {componentShowup} from "../../animation/ComponentShowAnimation";
+import {NavigationScrollConnector} from "../../connector/navigationScrollConnector";
 
 @Component({
   selector: 'app-career',
@@ -56,7 +56,7 @@ export class CareerComponent implements OnInit {
       this.pageSrcBlob[1] = URL.createObjectURL(new Blob([data] , { type: 'text/plain' }));
     });
     this.containerScrollRef.scrollEvent.subscribe(scroll => {
-      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
+      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 700) && !this.inShowArea) {
         console.log('chage to true');
         this.inShowArea = true;
       }

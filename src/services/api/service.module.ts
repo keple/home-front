@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
-import {CommonServiceImpl} from './common/commonServiceImpl';
-import {CommonService} from '../abstract/CommonService';
-import {ResourceService} from '../abstract/ResourceService';
+import {CommonImplService} from './common/common.impl.service';
+import {CommonService} from '../abstract/common.service';
+import {ResourceService} from '../abstract/resource.service';
 import {ResourceServiceImpl} from './resource/ResourceServiceImpl';
-import {ApiConfigModule} from '../../app/configuration/ApiConfig.module';
-import {ContactServiceImpl} from './contact/ContactServiceImpl';
-import {ContactService} from '../abstract/ContactService';
+import {ApiConfigModule} from '../../app/configuration/api.module';
+import {ContactImplService} from './contact/contact.impl.service';
+import {ContactService} from '../abstract/contact.service';
 import {WebsocketService} from './WebsocketService';
 
 
@@ -16,9 +16,9 @@ import {WebsocketService} from './WebsocketService';
     ApiConfigModule,
   ],
   providers: [
-    {provide : CommonService, useClass : CommonServiceImpl},
+    {provide : CommonService, useClass : CommonImplService},
     {provide : ResourceService, useClass : ResourceServiceImpl},
-    {provide : ContactService, useClass : ContactServiceImpl},
+    {provide : ContactService, useClass : ContactImplService},
     WebsocketService
   ],
 })

@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
-import {ResourceService} from '../../services/abstract/ResourceService';
+import {ResourceService} from '../../../services/abstract/resource.service';
 
 @Component({
   selector: 'app-mini-card',

@@ -4,7 +4,7 @@ import {CareerComponent} from '../career/career.component';
 import {FileViewComponent} from '../file-view/file-view.component';
 import {ProjectHealthCheckComponent} from '../project-health-check/project-health-check.component';
 import {ContactComponent} from '../contact/contact.component';
-import {NavigationScrollConnector} from '../connector/navigationScrollConnector';
+import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
 
 @Component({
   selector: 'app-intro-navigation',

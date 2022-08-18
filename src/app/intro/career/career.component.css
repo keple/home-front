@@ -21,10 +21,9 @@
 }
 .slider .slider-item {
   position: absolute;
-  width:75%;
+  width:55%;
   margin-right: 10%;
-  min-height: 650px;
-  max-height: 650px;
+  height: 750px;
   overflow-y: scroll;
 }
 .slider-item::-webkit-scrollbar {

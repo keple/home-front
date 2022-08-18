@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {MainFrameComponent} from '../mainFrame/mainFrame.component';
-import {componentShowup} from '../animation/ComponentShowAnimation';
-import {NavigationScrollConnector} from "../connector/navigationScrollConnector";
+import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
+import {componentShowup} from '../../animation/ComponentShowAnimation';
+import {NavigationScrollConnector} from "../../connector/navigationScrollConnector";
 
 @Component({
   selector: 'app-about',

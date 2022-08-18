@@ -1,12 +1,12 @@
 import {Component, ElementRef, OnInit, Output, EventEmitter} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {ContactService} from '../../services/abstract/ContactService';
-import {MainFrameComponent} from '../mainFrame/mainFrame.component';
-import {NavigationScrollConnector} from '../connector/navigationScrollConnector';
+import {ContactService} from '../../../services/abstract/contact.service';
+import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
+import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {componentShowup} from '../animation/ComponentShowAnimation';
+import {componentShowup} from '../../animation/ComponentShowAnimation';
 import {ReCaptchaV3Service} from "ng-recaptcha";
-import {MailDto} from "../../model/MailDto";
+import {MailDto} from "../../../model/MailDto";
 
 @Component({
   selector: 'app-contact',
@@ -35,7 +35,7 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.mailDto = new MailDto({title : '' , contents : '' , mailerName : '' , captcha : ''});
     this.containerScrollRef.scrollEvent.subscribe(scroll => {
-      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 400) && !this.inShowArea) {
+      if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 700) && !this.inShowArea) {
         console.log('chage to true');
         this.inShowArea = true;
       }
@@ -48,7 +48,7 @@ export class ContactComponent implements OnInit {
 
   submit(): void {
     console.log('submit message' , this.mailDto);
-    this.contactService.sendMail(this.mailDto);
+    // this.contactService.sendMail(this.mailDto);
   }
   resolved($event): void {
     console.log($event);

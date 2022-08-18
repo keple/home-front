@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {FileManagementService} from './fileManagement.service';
-import {ApiConfigModule} from '../../configuration/ApiConfig.module';
+import {ApiConfigModule} from '../../configuration/api.module';
 
 @NgModule({
  providers : [

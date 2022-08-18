@@ -64,7 +64,7 @@
   height:30%;
 }
 .bg-wood{
-  background-image : url("../../assets/background-image/wood-g2ec4cc835_1920.jpg");
+  background-image : url("../../../assets/background-image/wood-g2ec4cc835_1920.jpg");
   background-size: cover;
 
 }
@@ -80,11 +80,11 @@
   border-radius: 15px;
 }
 .bg-hd{
-  background-image : url("../../assets/background-image/hd-wallpaper-ga31cc645e_1920.jpg");
+  background-image : url("../../../assets/background-image/hd-wallpaper-ga31cc645e_1920.jpg");
   background-size: cover;
 }
 .bg-hd2{
-  background-image : url("../../assets/background-image/stones-ga0219c269_1920.jpg");
+  background-image : url("../../../assets/background-image/stones-ga0219c269_1920.jpg");
   background-size: cover;
 }
 .bg-white {
