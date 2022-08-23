@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, EventEmitter, Output} from '@angular/core';
-import {ServiceDto} from '../../../model/ServiceDto';
+import {ServiceModel} from '../../../model/service.model';
 import {CommonService} from '../services/abstract/common.service';
 import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
 import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
@@ -21,7 +21,7 @@ import {componentShowup} from '../../animation/ComponentShowAnimation';
   ]
 })
 export class ProjectHealthCheckComponent implements OnInit {
-  public projectList: Array<ServiceDto>;
+  public projectList: Array<ServiceModel>;
   inShowArea = false;
   constructor(private commonService: CommonService,
               private elRef: ElementRef,

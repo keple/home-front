@@ -1,9 +1,16 @@
-export class FileDto {
+interface FileResponse{
+  documentType: string;
+  filename: string;
+  displayName: string;
+  thumbNail: string;
+}
+
+export class FileModel {
   private thumbNail: string;
   private filename: string;
   private fileType: string;
   private displayName: string;
-  constructor(data) {
+  constructor(data: FileResponse) {
     this.fileType = data.documentType;
     this.filename = data.filename;
     this.displayName = data.displayName;

@@ -1,19 +1,19 @@
 import {CommonService} from '../../abstract/common.service';
 import {Injectable} from '@angular/core';
-import {MenuDto} from '../../../../../model/MenuDto';
-import {ServiceDto} from '../../../../../model/ServiceDto';
+import {MenuModel} from '../../../../../model/menu.model';
+import {ServiceModel} from '../../../../../model/service.model';
 
 @Injectable({
   providedIn : 'root'
 })
 export class CommonMockService implements CommonService {
-  public getSubMenuList(): Promise<MenuDto[]> {
+  public getSubMenuList(): Promise<MenuModel[]> {
       throw new Error('Method not implemented.');
   }
-  getMenuList(): Promise<Array<MenuDto>> {
+  getMenuList(): Promise<Array<MenuModel>> {
     return new Promise((resolve , reject) => {
       resolve([
-        new MenuDto('DashBoard' , '메인', '/'),
+        new MenuModel('DashBoard' , '메인', '/'),
       ]);
     });
   }
@@ -22,16 +22,16 @@ export class CommonMockService implements CommonService {
     return Promise.resolve(undefined);
   }
 
-  getProjects(): Promise<Array<ServiceDto>> {
+  getProjects(): Promise<Array<ServiceModel>> {
     const services = [
-      new ServiceDto('test', 'spring-boot'),
-      new ServiceDto('test1', 'spring-boot'),
-      new ServiceDto('test2', 'spring-boot')
+      new ServiceModel('test', 'spring-boot'),
+      new ServiceModel('test1', 'spring-boot'),
+      new ServiceModel('test2', 'spring-boot')
     ];
     return Promise.resolve(services);
   }
 
-  getSecureMenuList(): Promise<Array<MenuDto>> {
+  getSecureMenuList(): Promise<Array<MenuModel>> {
     return Promise.resolve(undefined);
   }
 

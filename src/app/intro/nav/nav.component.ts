@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 import {CommonService} from '../services/abstract/common.service';
-import {MenuDto} from '../../../model/MenuDto';
+import {MenuModel} from '../../../model/menu.model';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {UserAuthComponent} from '../user-auth/user-auth.component';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
@@ -13,7 +13,7 @@ import {MatDrawer} from '@angular/material/sidenav';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  menuList: Array<MenuDto>;
+  menuList: Array<MenuModel>;
   navigateName: string;
   private dialogRef;
   @Input() drawer: MatDrawer;

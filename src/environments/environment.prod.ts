@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://125.132.224.17/api'
+  apiUrl: 'http://intro.keple.info',
+  wsUrl: 'ws://intro.keple.info/ws/chat'
 };

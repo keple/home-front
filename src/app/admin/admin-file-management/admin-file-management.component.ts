@@ -4,7 +4,7 @@ import {FileManagementService} from '../service/fileManagement.service';
 import {AdminFileDto} from '../model/AdminFileDto';
 import {MatDialog} from '@angular/material/dialog';
 import {CreateFileDialogComponent} from '../dialogs/create-file-dialog/create-file-dialog.component';
-import {DeleteConfirmDialogComponent} from "../dialogs/delete-confirm-dialog/delete-confirm-dialog.component";
+import {DeleteConfirmDialogComponent} from '../dialogs/delete-confirm-dialog/delete-confirm-dialog.component';
 
 @Component({
   selector: 'app-admin-file-management',

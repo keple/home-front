@@ -5,8 +5,10 @@ import {MainFrameComponent} from '../../mainFrame/mainFrame.component';
 import {NavigationScrollConnector} from '../../connector/navigationScrollConnector';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {componentShowup} from '../../animation/ComponentShowAnimation';
-import {ReCaptchaV3Service} from "ng-recaptcha";
-import {MailDto} from "../../../model/MailDto";
+import {MailModel} from "../../../model/mail.model";
+import {ChatRoomModel} from "../../../model/chatRoom.model";
+import {ChatService} from "../services/chat.service";
+import {ChatMessageModel} from "../../../model/chatMessage.model";
 
 @Component({
   selector: 'app-contact',
@@ -25,15 +27,19 @@ import {MailDto} from "../../../model/MailDto";
 export class ContactComponent implements OnInit {
   @Output() inPositionEvent = new EventEmitter();
   public inShowArea = false;
-  public mailDto: MailDto;
+  public mailDto: MailModel;
+  public chatRooms: Array<ChatRoomModel>;
+  public messages: Array<ChatMessageModel> = [];
+  public chatMessage: string;
   constructor(private snackBar: MatSnackBar,
               private contactService: ContactService,
               private elRef: ElementRef,
               private containerScrollRef: MainFrameComponent,
               private navigationConnector: NavigationScrollConnector,
+              private chatService: ChatService
               ) { }
   ngOnInit(): void {
-    this.mailDto = new MailDto({title : '' , contents : '' , mailerName : '' , captcha : ''});
+    this.mailDto = new MailModel({title : '' , contents : '' , mailerName : '' , captcha : ''});
     this.containerScrollRef.scrollEvent.subscribe(scroll => {
       if (this.elRef.nativeElement.offsetTop <= (scroll.scrollTop + 700) && !this.inShowArea) {
         console.log('chage to true');
@@ -43,6 +49,9 @@ export class ContactComponent implements OnInit {
         (this.elRef.nativeElement.offsetTop + this.elRef.nativeElement.getBoundingClientRect().height) >= scroll.scrollTop){
         this.navigationConnector.setActive('contact');
       }
+    });
+    this.contactService.getChatRooms().then((data) => {
+      this.chatRooms = data;
     });
   }
 
@@ -56,5 +65,15 @@ export class ContactComponent implements OnInit {
   enterRoom(roomId): void {
     this.snackBar.open(`${roomId}` , 'close', {duration: 2500});
     // chat server에 연결
+    const messages = this.contactService.subscribeRoom(roomId);
+    messages.subscribe((message) => {
+      // @ts-ignore
+      const received = new ChatMessageModel(JSON.parse(message.body));
+      this.messages.push(received);
+      this.chatService.setCurrentRoom(roomId);
+    });
+  }
+  publishChatMessage(): void {
+    this.contactService.publishMessage(this.chatMessage);
   }
 }

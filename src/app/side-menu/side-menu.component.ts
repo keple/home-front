@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonService} from '../intro/services/abstract/common.service';
-import {MenuDto} from '../../model/MenuDto';
+import {MenuModel} from '../../model/menu.model';
 
 @Component({
   selector: 'app-side-menu',
@@ -8,7 +8,7 @@ import {MenuDto} from '../../model/MenuDto';
   styleUrls: ['./side-menu.component.css']
 })
 export class SideMenuComponent implements OnInit {
-  menuList: Array<MenuDto>;
+  menuList: Array<MenuModel>;
   constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {

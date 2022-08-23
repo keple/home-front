@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, Output, EventEmitter} from '@angular/core';
 import {ResourceService} from '../services/abstract/resource.service';
-import {FileDto} from '../../../model/FileDto';
+import {FileModel} from '../../../model/file.model';
 import {MatDialog} from '@angular/material/dialog';
 import {state, style, transition, trigger, useAnimation} from '@angular/animations';
 import {componentShowup} from '../../animation/ComponentShowAnimation';
@@ -22,7 +22,7 @@ import {NavigationScrollConnector} from '../../connector/navigationScrollConnect
   ]
 })
 export class FileViewComponent implements OnInit {
-  files: Array<FileDto>;
+  files: Array<FileModel>;
   inShowArea = false;
   constructor(private resourceService: ResourceService,
               private dialog: MatDialog,

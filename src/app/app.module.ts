@@ -13,6 +13,9 @@ import { WorkingDialogComponent } from './working-dialog/working-dialog.componen
 import {IntroModule} from './intro/intro.module';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {rxstompFactory} from './intro/services/rxstomp.factory';
+import {RxstompService} from './intro/services/rxstomp.service';
+import {AdminGuard} from "./guard/AdminGuard";
 
 @NgModule({
   declarations: [
@@ -34,6 +37,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   providers: [
     NavigationScrollConnector,
     IntroGuard,
+    AdminGuard,
+    {
+      provide: RxstompService,
+      useFactory: rxstompFactory
+    }
   ],
   bootstrap: [WelcomePageComponent]
 })

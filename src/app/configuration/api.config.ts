@@ -23,6 +23,7 @@ export class ApiConfig {
     this.secureAxios.interceptors.request.use(
       (config) => {
         // authentication header check
+        console.log('Authentication token : ', this.secureAxios.defaults.headers.common.Authorization);
         if (localStorage.getItem('token') === null){
           const dialogRef = this.dialog.open(ErrorResponseContentComponent , {
             width: '400px',

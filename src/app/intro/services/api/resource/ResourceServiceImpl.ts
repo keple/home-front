@@ -1,7 +1,7 @@
 import {ResourceService} from '../../abstract/resource.service';
 import {ApiConfig} from '../../../../configuration/api.config';
 import {Injectable} from '@angular/core';
-import {FileDto} from '../../../../../model/FileDto';
+import {FileModel} from '../../../../../model/file.model';
 import {AxiosError} from '../../../../../model/response/AxiosError';
 import {ErrorResponseContentComponent} from '../../../../error-response-content/error-response-content.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -11,13 +11,13 @@ export class ResourceServiceImpl implements ResourceService {
   constructor(private apiConfig: ApiConfig, private sanitizer: DomSanitizer){
     this.apiConfig = apiConfig;
   }
-  async getFileList(): Promise<Array<FileDto>> {
+  async getFileList(): Promise<Array<FileModel>> {
     return await this.apiConfig.getNonSecureAxios()({
       url: 'document/files',
       method: 'get',
     }).then(({data}) => {
       if (!data) { return; }
-      return data.map((x) =>  new FileDto(x));
+      return data.map((x) =>  new FileModel(x));
     });
   }
   async getFileForViewer(filename): Promise<ArrayBuffer> {

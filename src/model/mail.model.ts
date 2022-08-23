@@ -1,4 +1,4 @@
-export class MailDto {
+export class MailModel {
   title: string;
   contents: string;
   mailerName: string;

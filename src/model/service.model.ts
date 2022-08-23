@@ -1,4 +1,4 @@
-export class ServiceDto {
+export class ServiceModel {
   private serviceName: string;
   private projectTech: string;
   constructor(serviceName: string , projectTech: string) {

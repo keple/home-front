@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {CommonService} from '../../abstract/common.service';
-import {MenuDto} from '../../../../../model/MenuDto';
+import {MenuModel} from '../../../../../model/menu.model';
 import {ApiConfig} from '../../../../configuration/api.config';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {ServiceDto} from '../../../../../model/ServiceDto';
+import {ServiceModel} from '../../../../../model/service.model';
 import {Router} from '@angular/router';
 import {AdminPanelComponent} from '../../../../admin/admin-panel/admin-panel.component';
 import {ComponentMap} from '../../../../../resources/component.map';
@@ -15,11 +15,11 @@ export class CommonImplService implements CommonService{
     this.apiConfig = apiConfig;
   }
 
-  async getMenuList(): Promise<Array<MenuDto>> {
+  async getMenuList(): Promise<Array<MenuModel>> {
     return await this.apiConfig.getNonStrictSecureAxios()({
       url: 'common/menus',
       method: 'get',
-    }).then<Array<MenuDto>>(({data}) => {
+    }).then<Array<MenuModel>>(({data}) => {
       const introRoutesConfig = this.router.config.filter(route => route.path === 'intro');
       const menuList = data.map((dt) => {
         // path가 같은 Route object가 있는지 확인
@@ -29,7 +29,7 @@ export class CommonImplService implements CommonService{
         if (previousMatches.length === 0){
           introRoutesConfig[0].children.push({path: dt.path , component: this.componentMap.get(dt.menuId)});
         }
-        return new MenuDto(dt.menuId, dt.menuName, dt.path);
+        return new MenuModel(dt.menuId, dt.menuName, dt.path);
       });
       this.router.resetConfig(
         [
@@ -40,14 +40,14 @@ export class CommonImplService implements CommonService{
       return menuList;
     });
   }
-  async getProjects(): Promise<Array<ServiceDto>> {
+  async getProjects(): Promise<Array<ServiceModel>> {
     return await this.apiConfig.getNonSecureAxios()({
       url: 'common/services',
       method: 'get',
       withCredentials: true
-    }).then<Array<ServiceDto>>(({data}) => {
+    }).then<Array<ServiceModel>>(({data}) => {
       return data.map((dt) => {
-        return new ServiceDto(dt.serviceName, dt.tech);
+        return new ServiceModel(dt.serviceName, dt.tech);
       });
     });
   }
@@ -73,13 +73,13 @@ export class CommonImplService implements CommonService{
     });
   }
 
-  async getSubMenuList(viewCategory: string): Promise<Array<MenuDto>> {
+  async getSubMenuList(viewCategory: string): Promise<Array<MenuModel>> {
     return await this.apiConfig.getNonSecureAxios()({
       url: `common/${viewCategory}/subMenus`,
       method: 'get'
-    }).then<Array<MenuDto>>(({data}) => {
+    }).then<Array<MenuModel>>(({data}) => {
         return data.map((dt) => {
-          return new MenuDto(dt.menuId , dt.menuName, dt.path);
+          return new MenuModel(dt.menuId , dt.menuName, dt.path);
         });
     });
   }

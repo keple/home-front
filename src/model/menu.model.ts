@@ -1,4 +1,4 @@
-export class MenuDto {
+export class MenuModel {
   private displayName: string;
   private path: string;
   private menuId: string;

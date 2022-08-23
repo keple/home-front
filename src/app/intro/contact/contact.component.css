@@ -41,6 +41,27 @@
 .chat-area .chat-contents-area {
   width: 80%;
 }
+.chat-area .chat-contents-area .viewer {
+  width: 100%;
+  height: 85%;
+}
+.chat-area .chat-contents-area .input {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chat-area .chat-contents-area .features {
+  display:flex;
+  flex-direction: row;
+  
+  height:5%;
+}
+.w90 {
+  width: 90%;
+}
+
 .chat-area .chatroom-area .room-item {
   display:flex;
   width: 100%;

@@ -40,17 +40,32 @@
       <mat-tab label="Chat">
         <div class="chat-area ">
           <div class="chatroom-area scroll-item">
-            <div class="room-item">
+            <div class="room-item" *ngFor="let room of chatRooms">
               <div>
-                <span>ROOM-ITEM1</span>
+                <span>{{room.roomName}}</span>
               </div>
               <div>
-                <button mat-button (click)="enterRoom('ROOM-ITEM1')">입장</button>
+                <button mat-button (click)="enterRoom(room.roomId)">입장</button>
               </div>
             </div>
           </div>
           <div class="chat-contents-area">
+            <div class="viewer">
+              <div class="chat-message-wrapper" *ngFor="let message of messages">
+                <span>{{message.message}}</span>
 
+              </div>
+            </div>
+            <div class="features">
+
+            </div>
+            <div class="input">
+              <mat-form-field class="w90" appearance="fill">
+                <mat-label>메세지를 입력하세요</mat-label>
+                <input matInput [(ngModel)]="chatMessage">
+              </mat-form-field>
+              <button mat-button (click)="publishChatMessage()">Send</button>
+            </div>
           </div>
         </div>
       </mat-tab>

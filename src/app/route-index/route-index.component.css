@@ -31,3 +31,15 @@
 .index-container .link-detail div:hover {
   opacity : 1;
 }
+.fixed-login-button {
+  color: white;
+  z-index : 999;
+  position: fixed;
+  top : 60px;
+  right : 80px;
+}
+.fixed-login-button div {
+  cursor : pointer;
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 2rem;
+}

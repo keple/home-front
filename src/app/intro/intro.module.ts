@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-import {AppComponent} from '../app.component';
 import {NavComponent} from './nav/nav.component';
 import {MainFrameComponent} from '../mainFrame/mainFrame.component';
 import {MenuItemComponent} from './menu-item/menu-item.component';
@@ -23,7 +22,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
-import {ServiceModule} from './services/api/service.module';
+import {ServiceModule} from './services/service.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -39,12 +38,11 @@ import {NavigationScrollConnector} from '../connector/navigationScrollConnector'
 import {AppRoutingModule} from '../app-routing.module';
 import {UtilityModule} from './utils/utility.module';
 import {Typing} from './utils/Typing.util';
-import {MatChipsModule} from "@angular/material/chips";
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
   declarations : [
-    AppComponent,
     NavComponent,
     MainFrameComponent,
     MenuItemComponent,

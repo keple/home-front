@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:9000',
-  wsUrl: 'ws://localhost:9000/chat/stomp'
+  wsUrl: 'ws://127.0.0.1:9000/ws/chat'
 };
 
 /*
