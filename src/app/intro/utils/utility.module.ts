@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Typing} from './typing.util';
+import {Typing} from './Typing.util';
 import {TYPING_CONFIG} from './typing.config';
 
 @NgModule({

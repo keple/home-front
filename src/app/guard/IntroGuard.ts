@@ -13,11 +13,11 @@ export class IntroGuard implements CanActivate {
     : Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     // token 검증 후 access 가능하도록 변경
     return this.apiConfig.getNonSecureAxios()({
-      url : 'auth/guard/validationToken',
+      url : 'auth/validationToken',
       data : route.params.token,
       method: 'post'
     }).then((auth) => {
-      localStorage.setItem('token' , route.params.token);
+      localStorage.setItem('token' , `Bearer ${route.params.token}`);
       return true;
     }).catch((error) => {
       this.router.navigate(['']);

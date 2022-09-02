@@ -13,7 +13,7 @@ export class ErrorResponseContentComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: {statusCode: number, message: string}) {
     if (data.statusCode === 401){
       // localStorage에서 토큰항목 제거
-      localStorage.removeItem('token');
+      // localStorage.removeItem('token');
     }
   }
   ngOnInit(): void {

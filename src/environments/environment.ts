@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:9000',
-  wsUrl: 'ws://127.0.0.1:9000/ws/chat'
+  apiUrl: 'http://172.30.1.45:9995',
+  wsUrl: 'ws://172.30.1.45:9995/ws/chat'
 };
 
 /*

@@ -15,7 +15,7 @@ export class AdminGuard implements CanActivate {
     // Admin 권한을 가지고있는지 확인
     // secure axios는 header에 token을 추가하도록 동작
     return this.apiConfig.getSecureAxios()({
-      url : 'auth/token/user',
+      url : 'auth/validationToken',
       method: 'get'
     }).then(({data}) => {
       console.log(data.role);

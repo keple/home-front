@@ -19,11 +19,10 @@ export class ApiConfig {
     );
     // secure axios setting
     this.secureAxios = axios.create();
-    this.secureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
+
     this.secureAxios.interceptors.request.use(
       (config) => {
         // authentication header check
-        console.log('Authentication token : ', this.secureAxios.defaults.headers.common.Authorization);
         if (localStorage.getItem('token') === null){
           const dialogRef = this.dialog.open(ErrorResponseContentComponent , {
             width: '400px',
@@ -66,12 +65,14 @@ export class ApiConfig {
     return Promise.reject(error);
   }
   public getSecureAxios(): AxiosInstance {
+    this.secureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
     return this.secureAxios;
   }
   public getNonSecureAxios(): AxiosInstance {
     return this.nonSecureAxios;
   }
   public getNonStrictSecureAxios(): AxiosInstance {
+    this.nonStrictSecureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
     return this.nonStrictSecureAxios;
   }
 }

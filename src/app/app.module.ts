@@ -15,7 +15,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {rxstompFactory} from './intro/services/rxstomp.factory';
 import {RxstompService} from './intro/services/rxstomp.service';
-import {AdminGuard} from "./guard/AdminGuard";
+import {AdminGuard} from './guard/AdminGuard';
 
 @NgModule({
   declarations: [
