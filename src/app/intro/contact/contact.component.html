@@ -52,6 +52,7 @@
           <div class="chat-contents-area">
             <div class="viewer">
               <div class="chat-message-wrapper" *ngFor="let message of messages">
+                <p style="color: blue">{{message.userName}}</p>
                 <span>{{message.message}}</span>
 
               </div>

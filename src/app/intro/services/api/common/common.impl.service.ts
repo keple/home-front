@@ -7,42 +7,34 @@ import {ServiceModel} from '../../../../../model/service.model';
 import {Router} from '@angular/router';
 import {AdminPanelComponent} from '../../../../admin/admin-panel/admin-panel.component';
 import {ComponentMap} from '../../../../../resources/component.map';
+import {AxiosInstance} from "axios";
 @Injectable({
   providedIn : 'root'
 })
 export class CommonImplService implements CommonService{
+  private noneSecureAxiosAuth: AxiosInstance;
+  private noneSecureAxiosCommon: AxiosInstance;
   constructor(private apiConfig: ApiConfig, private snackBar: MatSnackBar, private router: Router, private componentMap: ComponentMap) {
     this.apiConfig = apiConfig;
+    this.noneSecureAxiosAuth = apiConfig.getNonSecureAxiosFactory()('auth');
+    this.noneSecureAxiosCommon = apiConfig.getNonSecureAxiosFactory()('common');
   }
 
   async getMenuList(): Promise<Array<MenuModel>> {
-    return await this.apiConfig.getNonStrictSecureAxios()({
-      url: 'common/menus',
+    return await this.noneSecureAxiosCommon({
+      url: '/menus',
       method: 'get',
     }).then<Array<MenuModel>>(({data}) => {
-      const introRoutesConfig = this.router.config.filter(route => route.path === 'intro');
       const menuList = data.map((dt) => {
-        // path가 같은 Route object가 있는지 확인
-        const previousMatches = introRoutesConfig[0].children.filter((r => {
-          if (r.path === dt.path) {return r; }
-        }));
-        if (previousMatches.length === 0){
-          introRoutesConfig[0].children.push({path: dt.path , component: this.componentMap.get(dt.menuId)});
-        }
         return new MenuModel(dt.menuId, dt.menuName, dt.path);
       });
-      this.router.resetConfig(
-        [
-          ...this.router.config,
-        ]
-      );
       console.log('change root router config' , this.router.config);
       return menuList;
     });
   }
   async getProjects(): Promise<Array<ServiceModel>> {
-    return await this.apiConfig.getNonSecureAxios()({
-      url: 'common/services',
+    return await this.noneSecureAxiosCommon({
+      url: '/services',
       method: 'get',
       withCredentials: true
     }).then<Array<ServiceModel>>(({data}) => {
@@ -53,8 +45,8 @@ export class CommonImplService implements CommonService{
   }
 
   async publishApiKey(username , password , authType): Promise<any> {
-    return await this.apiConfig.getNonSecureAxios()({
-      url: 'auth/publishToken',
+    return await this.noneSecureAxiosAuth({
+      url: 'publishToken',
       method: 'post',
       data: {
         username,
@@ -74,8 +66,8 @@ export class CommonImplService implements CommonService{
   }
 
   async getSubMenuList(viewCategory: string): Promise<Array<MenuModel>> {
-    return await this.apiConfig.getNonSecureAxios()({
-      url: `common/${viewCategory}/subMenus`,
+    return await this.noneSecureAxiosCommon({
+      url: `/${viewCategory}/subMenus`,
       method: 'get'
     }).then<Array<MenuModel>>(({data}) => {
         return data.map((dt) => {

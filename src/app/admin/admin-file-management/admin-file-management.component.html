@@ -16,21 +16,15 @@
         <mat-divider></mat-divider>
         <div class="file-upload-row">
           <div class="info-row">
-            <span>파일타입</span>
-            <span>{{file.getProvidedType()}}</span>
+            <mat-chip-list>
+              <mat-chip color="primary">{{file.getProvidedType()}}</mat-chip>
+              <mat-chip *ngIf="file.getProvidedType()==='viewer'">.md</mat-chip>
+            </mat-chip-list>
           </div>
-          <div class="info-row">
-            <span>파일선택</span>
-            <div class="file-group">
-              <input id="{{file.getDocName()}}" type="file"/>
-            </div>
-
-          </div>
-
         </div>
-        <div>
-          <button mat-button (click)="updateDocument()">수정</button>
-          <button mat-button (click)="deleteDocument()">삭제</button>
+        <div class="button-area">
+          <button mat-stroked-button color="primary" (click)="updateDocument(file.getDocName())">수정</button>
+          <button mat-raised-button color="warn" (click)="deleteDocument()">삭제</button>
         </div>
       </mat-card>
     </div>

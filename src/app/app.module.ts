@@ -16,6 +16,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {rxstompFactory} from './intro/services/rxstomp.factory';
 import {RxstompService} from './intro/services/rxstomp.service';
 import {AdminGuard} from './guard/AdminGuard';
+import {ApiConfig} from "./configuration/api.config";
+import {GuardValidationService} from "./intro/services/guard.validation.service";
+import {ApiConfigModule} from "./configuration/api.module";
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import {AdminGuard} from './guard/AdminGuard';
   imports: [
     AdminModule,
     IntroModule,
+    ApiConfigModule,
     HttpClientModule,
     AppRoutingModule,
     ComponentModule,
@@ -41,6 +45,10 @@ import {AdminGuard} from './guard/AdminGuard';
     {
       provide: RxstompService,
       useFactory: rxstompFactory
+    },
+    {
+      provide: GuardValidationService,
+      useClass: GuardValidationService
     }
   ],
   bootstrap: [WelcomePageComponent]

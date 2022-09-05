@@ -9,6 +9,8 @@ import {MailModel} from "../../../model/mail.model";
 import {ChatRoomModel} from "../../../model/chatRoom.model";
 import {ChatService} from "../services/chat.service";
 import {ChatMessageModel} from "../../../model/chatMessage.model";
+import {RxstompService} from "../services/rxstomp.service";
+import {rxStompConfig} from "../../configuration/rx-stomp.config";
 
 @Component({
   selector: 'app-contact',
@@ -36,7 +38,8 @@ export class ContactComponent implements OnInit {
               private elRef: ElementRef,
               private containerScrollRef: MainFrameComponent,
               private navigationConnector: NavigationScrollConnector,
-              private chatService: ChatService
+              private chatService: ChatService,
+              private rxStomp: RxstompService
               ) { }
   ngOnInit(): void {
     this.mailDto = new MailModel({title : '' , contents : '' , mailerName : '' , captcha : ''});
@@ -53,6 +56,8 @@ export class ContactComponent implements OnInit {
     this.contactService.getChatRooms().then((data) => {
       this.chatRooms = data;
     });
+    this.rxStomp.configure(rxStompConfig(localStorage.getItem('token').replace('Bearer ','')));
+    this.rxStomp.activate();
   }
 
   submit(): void {

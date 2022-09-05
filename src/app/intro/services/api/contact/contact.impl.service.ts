@@ -7,22 +7,26 @@ import {IMessage} from '@stomp/stompjs';
 import {ContactService} from '../../abstract/contact.service';
 import {ChatService} from '../../chat.service';
 import {ChatMessageModel} from '../../../../../model/chatMessage.model';
+import {AxiosInstance} from "axios";
 
 @Injectable()
 export class ContactImplService implements ContactService{
+  private noneSecureAxiosForNotificationApi: AxiosInstance;
+  private secureAxiosForChatApi: AxiosInstance;
   constructor(private apiConfig: ApiConfig,
               private stompService: RxstompService,
               private chatService: ChatService) {
-
+    this.noneSecureAxiosForNotificationApi = this.apiConfig.getNonSecureAxiosFactory()('notification', 1);
+    this.secureAxiosForChatApi = this.apiConfig.getSecureAxiosFactory()('chat' , 1);
   }
   subscribeRoom(roomId: string): Observable<IMessage> {
-    const observableMessage = this.stompService.watch(`/topic/room/${roomId}`);
+    const observableMessage = this.stompService.watch(`/topic/room/${roomId}`, {Authorization: localStorage.getItem('token')});
     this.chatService.setCurrentRoom(roomId);
     return observableMessage;
   }
   getChatRooms(): Promise<Array<ChatRoomModel>> {
-    return this.apiConfig.getSecureAxios()({
-      url: 'chat/rooms',
+    return this.secureAxiosForChatApi({
+      url: '/rooms',
       method: 'get',
     }).then<Array<ChatRoomModel>>(({data}) => {
       return data.map((dt) => {
@@ -34,8 +38,8 @@ export class ContactImplService implements ContactService{
     });
   }
   sendMail(mailDto) {
-    this.apiConfig.getNonSecureAxios()({
-      url: 'notification/send',
+    this.noneSecureAxiosForNotificationApi({
+      url: '/send',
       method: 'post',
       data : {
         ...mailDto
@@ -46,7 +50,6 @@ export class ContactImplService implements ContactService{
   }
 
   publishMessage(chatMessage: string ): void {
-    console.log('current roomId ~', this.chatService.getCurrentRoom());
     const roomId = this.chatService.getCurrentRoom();
     return this.stompService.publish({
       destination : `/app/publish`,

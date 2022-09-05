@@ -6,57 +6,14 @@ import { environment } from '../../environments/environment';
 // global
 axios.defaults.baseURL = environment.apiUrl;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ApiConfig {
-  private secureAxios;
-  private nonSecureAxios;
-  private nonStrictSecureAxios;
   constructor( private dialog: MatDialog) {
-    this.nonSecureAxios = axios.create();
-    this.nonSecureAxios.interceptors.response.use(
-      (response) => response,
-      this.requestRejectedInterceptor
-    );
-    // secure axios setting
-    this.secureAxios = axios.create();
-
-    this.secureAxios.interceptors.request.use(
-      (config) => {
-        // authentication header check
-        if (localStorage.getItem('token') === null){
-          const dialogRef = this.dialog.open(ErrorResponseContentComponent , {
-            width: '400px',
-            height: '500px',
-            data : {statusCode: -401}
-          });
-          throw new axios.Cancel('client 가 토큰을 가지고있지 않습니다.');
-        }
-        return config;
-      },
-      (error) => {
-        console.log('axios interceptor error' , error);
-        return Promise.reject(error);
-      }
-      // none strict axios setting
-    );
-    this.secureAxios.interceptors.response.use(
-      (response) => {
-        return response;
-      },
-      this.requestRejectedInterceptor
-    );
-    // none strict secure axios setting
-    this.nonStrictSecureAxios = axios.create();
-    this.nonStrictSecureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
-    this.nonStrictSecureAxios.interceptors.response.use(
-      (response) => {
-        return response;
-      },
-      this.requestRejectedInterceptor
-    );
   }
   private requestRejectedInterceptor = (error) => {
-    console.log(error);
+    console.error(error);
     const dialogRef = this.dialog.open(ErrorResponseContentComponent , {
       width: '400px',
       height: '470px',
@@ -64,15 +21,79 @@ export class ApiConfig {
     });
     return Promise.reject(error);
   }
-  public getSecureAxios(): AxiosInstance {
-    this.secureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
-    return this.secureAxios;
+  public getSecureAxiosFactory(): any {
+    return (baseurl, apiVersion) => {
+      const secureAxios = axios.create({
+        baseURL: `${environment.apiUrl}/${baseurl}`
+      });
+      secureAxios.interceptors.request.use(
+        (config) => {
+          // authentication header check
+          if (localStorage.getItem('token') === null){
+            const dialogRef = this.dialog.open(ErrorResponseContentComponent , {
+              width: '400px',
+              height: '500px',
+              data : {statusCode: -401}
+            });
+            throw new axios.Cancel('client 가 토큰을 가지고있지 않습니다.');
+          }
+          // set authorization header
+          config.headers.Authorization = localStorage.getItem('token');
+          config.headers['X-API-VERSION'] = apiVersion || 1;
+          return config;
+        },
+        (error) => {
+          console.log('axios interceptor error' , error);
+          return Promise.reject(error);
+        }
+        // none strict axios setting
+      );
+      secureAxios.interceptors.response.use(
+        (response) => {
+          return response;
+        },
+        this.requestRejectedInterceptor
+      );
+      return secureAxios;
+    };
   }
-  public getNonSecureAxios(): AxiosInstance {
-    return this.nonSecureAxios;
+  public getNonSecureAxiosFactory(): any {
+    return (baseurl, apiVersion) => {
+      const noneSecureAxios = axios.create({
+        baseURL: `${environment.apiUrl}/${baseurl}`
+      });
+      noneSecureAxios.interceptors.request.use(
+        config => {
+          config.headers['X-API-VERSION'] = apiVersion || 1;
+          return config;
+        }
+      );
+      noneSecureAxios.interceptors.response.use(
+        (response) => response,
+        this.requestRejectedInterceptor
+      );
+      return noneSecureAxios;
+    };
   }
-  public getNonStrictSecureAxios(): AxiosInstance {
-    this.nonStrictSecureAxios.defaults.headers.common.Authorization = localStorage.getItem('token');
-    return this.nonStrictSecureAxios;
+  public getNonStrictSecureAxiosFactory(): any {
+    return (baseurl, apiVersion) => {
+      const nonStrictSecureAxios = axios.create({
+        baseURL: `${environment.apiUrl}/${baseurl}`
+      });
+      nonStrictSecureAxios.interceptors.request.use(
+        config => {
+          config.headers.Authorization = localStorage.getItem('token');
+          config.headers['X-API-VERSION'] = apiVersion || 1;
+          return config;
+        }
+      );
+      nonStrictSecureAxios.interceptors.response.use(
+        (response) => {
+          return response;
+        },
+        this.requestRejectedInterceptor
+      );
+      return nonStrictSecureAxios;
+    };
   }
 }

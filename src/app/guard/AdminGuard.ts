@@ -3,10 +3,11 @@ import {Observable} from 'rxjs';
 import {ApiConfig} from '../configuration/api.config';
 import {UserModelInterface} from '../interface/model/user-model.interface';
 import {Injectable} from '@angular/core';
+import {GuardValidationService} from "../intro/services/guard.validation.service";
 
 @Injectable()
 export class AdminGuard implements CanActivate {
-  constructor(private apiConfig: ApiConfig , private router: Router){
+  constructor(private apiConfig: ApiConfig , private router: Router, private validationService: GuardValidationService){
   }
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot
@@ -14,12 +15,8 @@ export class AdminGuard implements CanActivate {
     console.log('token' , localStorage.getItem('token'));
     // Admin 권한을 가지고있는지 확인
     // secure axios는 header에 token을 추가하도록 동작
-    return this.apiConfig.getSecureAxios()({
-      url : 'auth/validationToken',
-      method: 'get'
-    }).then(({data}) => {
-      console.log(data.role);
-      if (data.role === 'ADMIN'){
+    return this.validationService.validationToken(localStorage.getItem('token').replace('Bearer ','')).then((auth) => {
+      if (auth.role === 'ADMIN'){
         return true;
       }else{
         this.router.navigate(['']);

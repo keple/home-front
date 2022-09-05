@@ -5,6 +5,8 @@ import {AdminFileDto} from '../model/AdminFileDto';
 import {MatDialog} from '@angular/material/dialog';
 import {CreateFileDialogComponent} from '../dialogs/create-file-dialog/create-file-dialog.component';
 import {DeleteConfirmDialogComponent} from '../dialogs/delete-confirm-dialog/delete-confirm-dialog.component';
+import {ConfirmDialogComponent} from "../dialogs/confirm-dialog/confirm-dialog.component";
+import {UpdateDocumentDialogComponent} from "../dialogs/update-document-dialog/update-document-dialog.component";
 
 @Component({
   selector: 'app-admin-file-management',
@@ -50,8 +52,13 @@ export class AdminFileManagementComponent implements OnInit {
       height: `700px`
     });
   }
-  updateDocument(): void {
+  updateDocument(id): void {
     // update confirm dialog
+    const dialogRef = this.dialog.open(UpdateDocumentDialogComponent , {
+      width: `400px`,
+      height: `800px`,
+      data: {documentId: id}
+    });
   }
   deleteDocument(): void {
     // delete confirm dialog

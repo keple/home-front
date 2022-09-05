@@ -20,7 +20,7 @@ export class AdminPanelComponent implements OnInit {
   }
   isCurrentRoute(path): boolean {
     const currentNavigation = this.router.getCurrentNavigation();
-    console.log('cur nav difference', currentNavigation, path);
+    // console.log('cur nav difference', currentNavigation, path);
     if (this.router.url.includes(path)) {
       return true;
     }

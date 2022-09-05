@@ -1,11 +1,17 @@
-
+export interface AdminFileInf {
+  displayName: string;
+  providedType: string;
+  docName: string;
+  filePath: string;
+  filename: string;
+}
 export class AdminFileDto {
   private displayName: string;
   private providedType: string;
   private docName: string;
   private filePath: string;
   private filename: string;
-  constructor(data) {
+  constructor(data: AdminFileInf) {
     this.displayName = data.displayName;
     this.providedType = data.providedType;
     this.docName = data.docName;

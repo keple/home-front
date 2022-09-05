@@ -7,6 +7,8 @@ import {ApiConfigModule} from '../../configuration/api.module';
 import {ContactImplService} from './api/contact/contact.impl.service';
 import {ContactService} from './abstract/contact.service';
 import {ChatService} from './chat.service';
+import {GuardValidationService} from "./guard.validation.service";
+import {ApiConfig} from "../../configuration/api.config";
 
 
 @NgModule({

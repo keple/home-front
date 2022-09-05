@@ -1,25 +1,38 @@
 import {Injectable} from '@angular/core';
 import {ApiConfig} from '../../configuration/api.config';
-import {MenuModel} from '../../../model/menu.model';
-import {AdminFileDto} from '../model/AdminFileDto';
+import {AdminFileDto, AdminFileInf} from '../model/AdminFileDto';
 
 @Injectable()
 export class FileManagementService {
-  constructor(private apiConfig: ApiConfig) {}
+  private instance;
+  constructor(private apiConfig: ApiConfig) {
+    // base url setting
+    this.instance = apiConfig.getSecureAxiosFactory()(`admin/resource/`);
+  }
 
   public uploadFile(fileType , formData): void {
-    this.apiConfig.getSecureAxios().post(`common/upload/${fileType}`, formData, {
+    this.instance.post(`upload/${fileType}`, formData, {
       headers : {'Contents-type': 'multipart/form-data' }
     }).then((data) => {
 
     });
   }
   public async getManagedFileList(): Promise<Array<AdminFileDto>> {
-    return await this.apiConfig.getSecureAxios().get(`admin/resource/files` ,
+    return await this.instance.get(`/files` ,
     {}
     ).then(({data}) => {
         console.log('adminResource' , data);
         return data.map(file => new AdminFileDto(file));
+    });
+  }
+  public getDocumentInfo(docName: string): Promise<AdminFileDto> {
+    return this.instance.getNonSecureAxios()({
+      url : `docInfo/${docName}`,
+      method: 'get'
+    }).then(({data}) => {
+      return new AdminFileDto(data);
+    }).catch((error) => {
+      console.error(error);
     });
   }
 }

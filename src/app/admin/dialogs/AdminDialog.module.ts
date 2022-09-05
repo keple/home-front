@@ -5,17 +5,23 @@ import {MatFormFieldControl, MatFormFieldModule} from '@angular/material/form-fi
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {DeleteConfirmDialogComponent} from './delete-confirm-dialog/delete-confirm-dialog.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MatButtonModule} from "@angular/material/button";
+import { UpdateDocumentDialogComponent } from './update-document-dialog/update-document-dialog.component';
 
 @NgModule({
   declarations: [
     CreateFileDialogComponent,
-    DeleteConfirmDialogComponent
+    DeleteConfirmDialogComponent,
+    ConfirmDialogComponent,
+    UpdateDocumentDialogComponent
   ],
   imports : [
     FormsModule,
     MatSelectModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   exports: [
     CreateFileDialogComponent,
