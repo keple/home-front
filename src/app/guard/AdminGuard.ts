@@ -12,7 +12,6 @@ export class AdminGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot,
               state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('token' , localStorage.getItem('token'));
     // Admin 권한을 가지고있는지 확인
     // secure axios는 header에 token을 추가하도록 동작
     return this.validationService.validationToken(localStorage.getItem('token').replace('Bearer ','')).then((auth) => {

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {FileManagementService} from '../service/fileManagement.service';
-import {AdminFileDto} from '../model/AdminFileDto';
+import {AdminFileModel} from '../model/admin.file.model';
 import {MatDialog} from '@angular/material/dialog';
 import {CreateFileDialogComponent} from '../dialogs/create-file-dialog/create-file-dialog.component';
 import {DeleteConfirmDialogComponent} from '../dialogs/delete-confirm-dialog/delete-confirm-dialog.component';
 import {ConfirmDialogComponent} from "../dialogs/confirm-dialog/confirm-dialog.component";
 import {UpdateDocumentDialogComponent} from "../dialogs/update-document-dialog/update-document-dialog.component";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-admin-file-management',
@@ -31,7 +32,7 @@ import {UpdateDocumentDialogComponent} from "../dialogs/update-document-dialog/u
 })
 export class AdminFileManagementComponent implements OnInit {
   mouseIn: boolean;
-  fileList: Array<AdminFileDto>;
+  fileList: Array<AdminFileModel>;
   constructor(private fileManagement: FileManagementService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -56,7 +57,7 @@ export class AdminFileManagementComponent implements OnInit {
     // update confirm dialog
     const dialogRef = this.dialog.open(UpdateDocumentDialogComponent , {
       width: `400px`,
-      height: `800px`,
+      height: `500px`,
       data: {documentId: id}
     });
   }
