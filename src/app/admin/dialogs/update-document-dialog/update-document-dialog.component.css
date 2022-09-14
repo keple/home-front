@@ -1,0 +1,17 @@
+.update-document-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.update-document-container .form-fields {
+  padding: 25px;
+}
+.update-document-container .button-area {
+  display: flex;
+  justify-content: flex-end;
+}
+.update-document-container .button-area button{
+  margin: 5px;
+}

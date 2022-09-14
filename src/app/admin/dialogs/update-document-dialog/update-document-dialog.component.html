@@ -1,0 +1,30 @@
+<div class="update-document-container">
+  <div class="form-fields" [formGroup] = "formGroup">
+    <mat-form-field appearance="legacy" class="max-width" >
+      <mat-label>DisplayName</mat-label>
+      <input matInput type="text" formControlName="displayName">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="max-width">
+      <mat-label>File Type</mat-label>
+      <mat-select formControlName="providedAs">
+        <mat-option value="file">File(download)</mat-option>
+        <mat-option value="viewer">Viewer(markdown)</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <label>File</label>
+      <app-file-upload formControlName="file"></app-file-upload>
+    </div>
+    <div>
+      <label>IS_VISIBLE</label>
+      <mat-radio-group formControlName="isVisible">
+        <mat-radio-button [value]=true>VISIBLE</mat-radio-button>
+        <mat-radio-button [value]=false>NONE-VISIBLE</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div class="button-area">
+    <button mat-raised-button color="warn" (click)="cancel()">취소</button>
+    <button mat-raised-button  (click)="updateDocument()">확인</button>
+  </div>
+</div>
