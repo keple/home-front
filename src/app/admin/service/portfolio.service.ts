@@ -1,6 +1,6 @@
-import {ApiConfig} from "../../configuration/api.config";
-import {Injectable} from "@angular/core";
-import {AdminServicesModel} from "../model/admin.services.model";
+import {ApiConfig} from '../../configuration/api.config';
+import {Injectable} from '@angular/core';
+import {AdminServicesModel} from '../model/admin.services.model';
 
 
 @Injectable()

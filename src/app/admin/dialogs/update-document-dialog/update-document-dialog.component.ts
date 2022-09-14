@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {UpdateDocumentModel} from "../../model/update.document.model";
 import {ConfirmDialogComponent} from "../confirm-dialog/confirm-dialog.component";
-import {FileManagementService} from "../../service/fileManagement.service";
+import {FileManagementService} from "../../service/file-management.service";
 import {AdminFileModel} from "../../model/admin.file.model";
 import {Form, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 

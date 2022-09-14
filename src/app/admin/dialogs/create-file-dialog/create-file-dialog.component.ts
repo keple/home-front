@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FileManagementService} from '../../service/fileManagement.service';
+import {FileManagementService} from '../../service/file-management.service';
 
 @Component({
   selector: 'app-create-file-dialog',

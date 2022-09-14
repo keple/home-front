@@ -1,12 +1,14 @@
 import {NgModule} from '@angular/core';
-import {FileManagementService} from './fileManagement.service';
+import {FileManagementService} from './file-management.service';
 import {ApiConfigModule} from '../../configuration/api.module';
 import {PortfolioService} from "./portfolio.service";
+import {UserService} from "./user.service";
 
 @NgModule({
  providers : [
    FileManagementService,
-   PortfolioService
+   PortfolioService,
+   UserService
  ],
   imports : [
     ApiConfigModule

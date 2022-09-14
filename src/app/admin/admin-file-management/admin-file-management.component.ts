@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {FileManagementService} from '../service/fileManagement.service';
+import {FileManagementService} from '../service/file-management.service';
 import {AdminFileModel} from '../model/admin.file.model';
 import {MatDialog} from '@angular/material/dialog';
 import {CreateFileDialogComponent} from '../dialogs/create-file-dialog/create-file-dialog.component';
