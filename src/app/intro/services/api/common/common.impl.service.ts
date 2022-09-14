@@ -39,7 +39,7 @@ export class CommonImplService implements CommonService{
       withCredentials: true
     }).then<Array<ServiceModel>>(({data}) => {
       return data.map((dt) => {
-        return new ServiceModel(dt.serviceName, dt.tech);
+        return new ServiceModel(dt);
       });
     });
   }

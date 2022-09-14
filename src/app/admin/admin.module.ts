@@ -18,6 +18,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatRadioGroup, MatRadioModule} from "@angular/material/radio";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations : [
@@ -41,7 +43,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatTooltipModule,
     MatExpansionModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatRadioModule,
+    MatFormFieldModule
   ],
   exports : [
     AdminPanelComponent,

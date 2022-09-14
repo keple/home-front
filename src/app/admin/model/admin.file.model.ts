@@ -1,22 +1,25 @@
 export interface AdminFileInf {
   displayName: string;
-  providedType: string;
+  providedAs: string;
   docName: string;
   filePath: string;
   filename: string;
+  visible: boolean;
 }
-export class AdminFileDto {
-  private displayName: string;
-  private providedType: string;
-  private docName: string;
-  private filePath: string;
-  private filename: string;
+export class AdminFileModel {
+   displayName: string;
+   providedAs: string;
+   docName: string;
+   filePath: string;
+   filename: string;
+   isVisible: boolean;
   constructor(data: AdminFileInf) {
     this.displayName = data.displayName;
-    this.providedType = data.providedType;
+    this.providedAs = data.providedAs;
     this.docName = data.docName;
     this.filePath = data.filePath;
     this.filename = data.filename;
+    this.isVisible = data.visible;
   }
   public getDisplayName() {
     return this.displayName;
@@ -25,7 +28,7 @@ export class AdminFileDto {
     return this.docName;
   }
   public getProvidedType() {
-    return this.providedType;
+    return this.providedAs;
   }
   public getFilePath() {
     return this.filePath;
