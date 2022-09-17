@@ -168,6 +168,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .max-width {
   width:100%;
 }
+.max-height{
+  height: 100%;
+}
 .padder {
   padding: 5px !important;
 }

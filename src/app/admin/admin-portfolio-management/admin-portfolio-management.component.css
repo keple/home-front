@@ -3,5 +3,24 @@
   height: 100%;
   display: flex;
   flex-direction : column;
+  align-items: center;
   padding: 10px;
+}
+
+.portfolio-table{
+  width: 90%;
+  border-collapse: separate;
+  border-spacing: 0 7px;
+}
+
+.portfolio-table .center {
+  text-align: center;
+}
+.portfolio-table th {
+  font-size : 1.1rem;
+  font-weight: bold;
+}
+.portfolio-table td {
+  border-bottom: solid 1px #aaaaaa;
+  padding: 7px;
 }

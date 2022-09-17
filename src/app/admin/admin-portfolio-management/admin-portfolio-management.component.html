@@ -1,5 +1,22 @@
 <div class="portfolio-container bg-white">
-  <div *ngFor="let portfolio of portFolioList">
-
-  </div>
+  <table class="portfolio-table">
+    <thead>
+      <th>Service-Name</th>
+      <th>Actuator-Url</th>
+      <th>Tech</th>
+      <th>Service-Route-Url</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let portfolio of portFolioList">
+        <td class="center">{{portfolio.serviceName}}</td>
+        <td class="center">{{portfolio.serviceActuatorUrl}}</td>
+        <td class="center">{{portfolio.tech}}</td>
+        <td class="center">{{portfolio.serviceRouteUrl}}</td>
+        <td class="center"><button mat-fab color="primary" (click)="update(portfolio.serviceName)"><i class="fa-solid fa-pen-nib"></i></button></td>
+        <td class="center"><button mat-fab color="warn" (click)="delete(portfolio.serviceName)"><i class="fa-solid fa-trash"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
