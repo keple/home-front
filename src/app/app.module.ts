@@ -16,9 +16,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {rxstompFactory} from './intro/services/rxstomp.factory';
 import {RxstompService} from './intro/services/rxstomp.service';
 import {AdminGuard} from './guard/AdminGuard';
-import {ApiConfig} from "./configuration/api.config";
-import {GuardValidationService} from "./intro/services/guard.validation.service";
-import {ApiConfigModule} from "./configuration/api.module";
+import {ApiConfig} from './configuration/api.config';
+import {GuardValidationService} from './intro/services/guard.validation.service';
+import {ApiConfigModule} from './configuration/api.module';
+import {InterestModule} from "./interest/interest.module";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {ApiConfigModule} from "./configuration/api.module";
   imports: [
     AdminModule,
     IntroModule,
+    InterestModule,
     ApiConfigModule,
     HttpClientModule,
     AppRoutingModule,
