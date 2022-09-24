@@ -1,1 +1,10 @@
-<div></div>
+<div class="user-management-container bg-white">
+  <div class="user-list">
+    <div *ngFor="let user of userList">
+      <div (click)="getUserDetail(user.userId)">{{user.userId}}</div>
+    </div>
+  </div>
+  <div class="user-detail">
+
+  </div>
+</div>

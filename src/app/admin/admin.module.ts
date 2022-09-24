@@ -20,6 +20,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatRadioGroup, MatRadioModule} from "@angular/material/radio";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatTreeModule} from "@angular/material/tree";
 
 @NgModule({
   declarations : [
@@ -28,25 +29,26 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     AdminPortfolioManagementComponent,
     AdminUserManagementComponent,
   ],
-  imports : [
-    AdminRouteModule,
-    AdminDialogModule,
-    ComponentModule,
-    AdminServiceModule,
-    BrowserModule,
-    MatListModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDividerModule,
-    MatToolbarModule,
-    MatDialogModule,
-    MatTooltipModule,
-    MatExpansionModule,
-    MatCardModule,
-    MatChipsModule,
-    MatRadioModule,
-    MatFormFieldModule
-  ],
+    imports: [
+        AdminRouteModule,
+        AdminDialogModule,
+        ComponentModule,
+        AdminServiceModule,
+        BrowserModule,
+        MatListModule,
+        MatButtonModule,
+        MatIconModule,
+        MatDividerModule,
+        MatToolbarModule,
+        MatDialogModule,
+        MatTooltipModule,
+        MatExpansionModule,
+        MatCardModule,
+        MatChipsModule,
+        MatRadioModule,
+        MatFormFieldModule,
+        MatTreeModule
+    ],
   exports : [
     AdminPanelComponent,
     AdminFileManagementComponent

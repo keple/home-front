@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminUserModel} from '../model/admin.user.model';
+import {UserService} from '../service/user.service';
 
 @Component({
   selector: 'app-admin-user-management',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-user-management.component.css']
 })
 export class AdminUserManagementComponent implements OnInit {
-
-  constructor() { }
+  public userList: Array<AdminUserModel>;
+  public userInfo: AdminUserModel;
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUserList().then(data => {
+      console.log(data);
+      this.userList = data;
+    });
   }
-
+  getUserDetail(userId: string): void {
+    this.userService.getUserDetail(userId).then(data => {
+      this.userInfo = data;
+    });
+  }
 }
