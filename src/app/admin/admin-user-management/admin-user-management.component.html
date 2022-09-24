@@ -1,10 +1,38 @@
 <div class="user-management-container bg-white">
   <div class="user-list">
-    <div *ngFor="let user of userList">
-      <div (click)="getUserDetail(user.userId)">{{user.userId}}</div>
-    </div>
+    <div>USER-LIST</div>
+    <mat-list class="list-container"*ngFor="let user of userList">
+      <div class="list-row">
+        <mat-list-item class="pointer" (click)="getUserDetail(user.userId)">{{user.userId}}</mat-list-item>
+        <mat-chip-list>
+          <mat-chip color="accent" selected>{{user.role}}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list>
   </div>
   <div class="user-detail">
+    <div class="detail-container" *ngIf="userInfo!==undefined">
+      <div class="icons">
+          <div class="icon-circle">
+            <img src="assets/images/no-data-7729.png" style="width:70%;height:70%">
+          </div>
+      </div>
+      <div class="contents">
+        <div><span>ID : </span><span>{{userInfo.userId}}</span></div>
+        <div><span>ROLE : </span><span>{{userInfo.role}}</span></div>
+        <div><span>EXPIRED MINUTES : </span><span>{{userInfo.expiredMinutes}}</span></div>
+        <div><span>REG DTTM : </span><span>{{userInfo.regDttm}}</span></div>
+      </div>
+      <div class="buttons">
+        <button mat-raised-button color="accent" (click)="openUpdateModal()">Update</button>
+        <button mat-raised-button color="warn" (click)="openConfirmModal()">Delete</button>
+      </div>
+    </div>
+
+    <div class="no-data-div" *ngIf="userInfo===undefined">
+      NO DATA
+    </div>
 
   </div>
 </div>
